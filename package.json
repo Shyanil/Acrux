@@ -1,0 +1,8 @@
+{
+  "name": "acrux",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node netlify-build.js"
+  }
+}
