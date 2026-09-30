@@ -35,7 +35,12 @@ Thumbs.db
 .idea/
 
 # Temporary test screenshots
+# Temporary test screenshots
 stats_*.png
 modal_*.png
 desktop-verified.png
 mobile-verified.png
+
+# HTML build exports (Next.js is the source of truth)
+*.html
+**/*.html
