@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Next.js & Build outputs
+.next/
+**/.next/
+out/
+**/out/
+build/
+**/build/
+dist/
+**/dist/
+
+# Temporary / testing
+.tmp/
+**/.tmp/
+coverage/
+**/coverage/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env*
+!.env.example
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.pem
+.vscode/
+.idea/
+
+# Temporary test screenshots
+stats_*.png
+modal_*.png
+desktop-verified.png
+mobile-verified.png

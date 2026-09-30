@@ -1,0 +1,83 @@
+Package Report
+
+-----------------------------------------------------------------------------
+Document:
+Name: Acrux Billboard_20X10_AW.ai
+Color Mode: CMYK color
+Color Profile: U.S. Web Coated (SWOP) v2
+Ruler Units: feet
+Artboard Dimensions: 20 ft x 10 ft
+Show Images in Outline Mode: OFF
+Highlight Substituted Fonts: OFF
+Highlight Substituted Glyphs: OFF
+Preserve Text Editability
+Simulate Colored Paper: OFF
+
+-----------------------------------------------------------------------------
+Spot Color Objects:
+
+-----------------------------------------------------------------------------
+Missing Fonts:NONE
+
+-----------------------------------------------------------------------------
+Protected Fonts that were not packaged:NONE
+
+-----------------------------------------------------------------------------
+Fonts:
+Gotham Medium (OTF)
+GothamBook (OTF)
+
+-----------------------------------------------------------------------------
+Embedded Fonts:
+NONE
+
+-----------------------------------------------------------------------------
+Missing Links:
+NONE
+
+-----------------------------------------------------------------------------
+Linked Images:
+
+\\Btb24\e\Acrux\Acrux Billboard_Folder\Acrux Billboard 25082025_Folder\Links\shutterstock_455414719.tif
+Type: CMYK
+Bits per Pixel: 32
+Channels: 4
+Size: 82134K, 5616 by 3744 pixels
+Dimensions: 1794.8 by 1196.533 points 
+Resolution: 225.291 by 225.291 pixels per inch
+
+
+\\Btb24\e\Acrux\Acrux Billboard_Folder\Acrux Billboard 25082025_Folder\Links\shutterstock_455414719.tif
+Type: CMYK
+Bits per Pixel: 32
+Channels: 4
+Size: 82134K, 5616 by 3744 pixels
+Dimensions: 1794.8 by 1196.533 points 
+Resolution: 225.291 by 225.291 pixels per inch
+
+
+\\Btb24\e\Acrux\Acrux Billboard_Folder\Acrux Billboard 25082025_Folder\Links\shutterstock_455414719.tif
+Type: CMYK
+Bits per Pixel: 32
+Channels: 4
+Size: 82134K, 5616 by 3744 pixels
+Dimensions: 1794.8 by 1196.533 points 
+Resolution: 225.291 by 225.291 pixels per inch
+
+
+\\Btb24\e\Acrux\Acrux Billboard_Folder\Acrux Billboard 25082025_Folder\Links\shutterstock_455414719.tif
+Type: CMYK
+Bits per Pixel: 32
+Channels: 4
+Size: 82134K, 5616 by 3744 pixels
+Dimensions: 1794.8 by 1196.533 points 
+Resolution: 225.291 by 225.291 pixels per inch
+
+
+\\Btb24\e\Acrux\Acrux Billboard_Folder\Acrux Billboard 25082025_Folder\Links\shutterstock_455414719.tif
+Type: CMYK
+Bits per Pixel: 32
+Channels: 4
+Size: 82134K, 5616 by 3744 pixels
+Dimensions: 1794.8 by 1196.533 points 
+Resolution: 225.291 by 225.291 pixels per inch
