@@ -9,36 +9,50 @@ const heroSlides = [
   {
     image: "Master_Elevation.webp",
     tag: "PATIA, BHUBANESWAR",
-    title1: "A Life, Beautifully",
+    title1: "Life, Beautifully",
     title2: "Shaped.",
+    scene: "01 / THE ARCHITECTURE",
     desc: "556 ultra-luxury residences across 5 soaring 21-storey towers with 60% open landscaped greens.",
     alt: "Acrux Aakaar iconic residential towers surrounded by landscaped gardens"
   },
   {
     image: "Entrance_Dusk.webp",
     tag: "PATIA, BHUBANESWAR",
-    title1: "Come Home To",
-    title2: "Something Special.",
+    title1: "Arrive In Style.",
+    title2: "Stay Inspired.",
+    scene: "02 / THE ARRIVAL",
     desc: "An imposing double-height entrance gateway and exclusive G+3 clubhouse crafted for an elevated life.",
     alt: "The Aakaar grand entrance at dusk illuminated with ambient lighting"
   },
   {
     image: "Rooftop_Sky_Lounge.webp",
     tag: "PATIA, BHUBANESWAR",
-    title1: "Evenings Above",
-    title2: "The Everyday.",
+    title1: "The City Below.",
+    title2: "The Sky Above.",
+    scene: "03 / THE SKY LOUNGE",
     desc: "Panoramic rooftop sky lounge and landscaped pergola terraces overlooking the city skyline.",
     alt: "Rooftop sky lounge with panoramic city views"
   },
   {
     image: "Entrance_Sunrise.webp",
     tag: "PATIA, BHUBANESWAR",
-    title1: "Sun-Kissed Spaces,",
-    title2: "Perfected Living.",
+    title1: "Wake To Light.",
+    title2: "Live In Full.",
+    scene: "04 / THE RESIDENCES",
     desc: "Thoughtfully crafted 2.5 & 3 BHK residences with expansive balconies and tranquil open vistas.",
     alt: "Aakaar residences in the morning light"
   }
 ];
+const heroSocials = [
+  { label: "Facebook", href: "https://www.facebook.com/acruxrealcon03" },
+  { label: "Instagram", href: "https://www.instagram.com/acrux_realcon/" },
+  { label: "YouTube", href: "https://www.youtube.com/@acrux_realcon" },
+];
+function HeroSocialIcon({ label }: { label: string }) {
+  if (label === "Facebook") return <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8.1h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.2H7.3v3.2h2.8V21h3.4Z" /></svg>;
+  if (label === "Instagram") return <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>;
+  return <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" strokeWidth="1.8" /><path d="m10 9 5 3-5 3V9Z" fill="currentColor" /></svg>;
+}
 const amenities = [["Rooftop_Sky_Lounge.webp", "Sky lounge", "A little closer to the stars."], ["Podium_Garden.webp", "Podium gardens", "Room to wander. Space to breathe."], ["Zen_Pond.webp", "Zen pond", "Find your own quiet corner."], ["Rooftop_Pergola.webp", "Rooftop pergola", "Slow mornings. Unhurried evenings."], ["Central_Lawn.webp", "Central lawn", "More room for life outdoors."], ["Plaza_Blocks_AB.webp", "Community plaza", "Where neighbours become friends."]];
 const nav = [["Overview", "overview"], ["Residences", "residences"], ["Amenities", "amenities"], ["Gallery", "gallery"], ["Location", "location"]];
 function Picture({ src, alt, className = "", priority = false }: { src: string; alt: string; className?: string; priority?: boolean }) { return <div className={`picture ${className}`}><Image src={src} alt={alt} fill sizes="(max-width: 700px) 100vw, 75vw" className="picture-image" priority={priority} /></div>; }
@@ -123,6 +137,7 @@ export default function Home() {
   const [modalResidence, setModalResidence] = useState("3 BHK");
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -136,9 +151,29 @@ export default function Home() {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
- const [heroProgress, setHeroProgress] = useState(0);
  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 30); onScroll(); window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll); }, []);
+ useEffect(() => {
+   const hero = heroRef.current;
+   if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+   let frame = 0;
+   const update = () => {
+     frame = 0;
+     const progress = Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / hero.offsetHeight));
+     hero.style.setProperty("--hero-scroll-scale", `${1 + progress * 0.06}`);
+     hero.style.setProperty("--hero-scroll-lift", `${-progress * 18}px`);
+     hero.style.setProperty("--hero-scroll-opacity", `${1 - progress * 0.2}`);
+   };
+   const onScroll = () => { if (!frame) frame = window.requestAnimationFrame(update); };
+   update();
+   window.addEventListener("scroll", onScroll, { passive: true });
+   window.addEventListener("resize", onScroll);
+   return () => {
+     window.removeEventListener("scroll", onScroll);
+     window.removeEventListener("resize", onScroll);
+     if (frame) window.cancelAnimationFrame(frame);
+   };
+ }, []);
    useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -157,19 +192,10 @@ export default function Home() {
   }, [enquiryOpen, lightbox]);
 
   useEffect(() => {
-    const intervalTime = 6000;
-    const stepTime = 50;
-    const increment = (stepTime / intervalTime) * 100;
-    const timer = window.setInterval(() => {
-      setHeroProgress((prev) => {
-        if (prev >= 100) {
-          setHeroSlide((curr) => (curr + 1) % heroSlides.length);
-          return 0;
-        }
-        return prev + increment;
-      });
-    }, stepTime);
-    return () => window.clearInterval(timer);
+    const timer = window.setTimeout(() => {
+      setHeroSlide((curr) => (curr + 1) % heroSlides.length);
+    }, 6500);
+    return () => window.clearTimeout(timer);
   }, [heroSlide]);
 
   const openEnquiryModal = (e?: React.MouseEvent) => {
@@ -177,93 +203,63 @@ export default function Home() {
     setEnquirySubmitted(false);
     setEnquiryOpen(true);
   };
- const selectHeroSlide = (index: number) => { setHeroSlide(index); setHeroProgress(0); };
- const nextHeroSlide = () => { setHeroSlide((curr) => (curr + 1) % heroSlides.length); setHeroProgress(0); };
- const prevHeroSlide = () => { setHeroSlide((curr) => (curr - 1 + heroSlides.length) % heroSlides.length); setHeroProgress(0); };
+ const nextHeroSlide = () => setHeroSlide((curr) => (curr + 1) % heroSlides.length);
+ const prevHeroSlide = () => setHeroSlide((curr) => (curr - 1 + heroSlides.length) % heroSlides.length);
  const openImage = (src: string, title: string) => { setLightbox({ src, title }); };
  return <main className="aakaar-site" id="top">
  <a href="#overview" className="skip-link">Skip to content</a>
  <header className={`site-header${scrolled ? " is-scrolled" : ""}`}><a href="#top" className="brand" aria-label="Acrux Aakaar home"><Image src="/assets/Aakaar Logo.webp" alt="Acrux Aakaar" width={160} height={65} priority /></a><nav aria-label="Main navigation" className="desktop-nav">{nav.map(([label,id]) => <a href={`#${id}`} key={id}>{label}</a>)}</nav><a href="#enquire" className="header-enquire" onClick={openEnquiryModal}>Enquire now <ArrowUpRight size={16}/></a><button className="menu-toggle" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</button></header>
  {menuOpen && <nav className="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">{nav.map(([label,id]) => <a href={`#${id}`} key={id} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={20}/></a>)}<a href="#enquire" onClick={(e) => { setMenuOpen(false); openEnquiryModal(e); }} style={{ color: "#ad3f3c", fontWeight: 600 }}>Enquire now <ArrowUpRight size={20}/></a></nav>}
- <section className="hero" aria-label="Introducing Acrux Aakaar">
-    <div className="hero-slides">
-      {heroSlides.map((s, i) => (
-        <div key={s.image} className={`hero-slide${heroSlide === i ? " active" : ""}`} aria-hidden={heroSlide !== i}>
-          <Picture src={`${project}${s.image}`} alt={s.alt} className="hero-picture" priority={i === 0} />
+ <section className="aakaar-hero" ref={heroRef} aria-label="Introducing Acrux Aakaar">
+    <div className="aakaar-hero-slides">
+      {heroSlides.map((item, index) => (
+        <div
+          key={item.image}
+          className={`aakaar-hero-slide${heroSlide === index ? " is-active" : ""}`}
+          aria-hidden={heroSlide !== index}
+        >
+          <Picture src={`${project}${item.image}`} alt={item.alt} className="aakaar-hero-picture" priority={index === 0} />
         </div>
       ))}
     </div>
-    
-    {/* Clean, light cinematic overlay allowing full architectural visibility */}
-    <div className="hero-shade-top" />
-    <div className="hero-shade-main" />
-    <div className="hero-shade-bottom" />
+    <div className="aakaar-hero-scene" aria-live="polite">
+      <span>{heroSlides[heroSlide].scene}</span>
+      <span>Artist’s impression</span>
+    </div>
 
-    <div className="hero-container">
-      <div className="hero-content" key={heroSlide}>
-        <div className="hero-eyebrow">
-          <span className="hero-beacon" />
-          <span>{heroSlides[heroSlide].tag}</span>
-        </div>
-        <h1 className="hero-headline">
-          <span className="hero-headline-primary">{heroSlides[heroSlide].title1}</span>
-          <br />
-          <em className="hero-headline-accent">{heroSlides[heroSlide].title2}</em>
+    <div className="aakaar-hero-inner">
+      <div className="aakaar-hero-copy" key={heroSlide}>
+        <div className="aakaar-hero-kicker"><span />{heroSlides[heroSlide].tag}</div>
+        <span className="aakaar-hero-overline">THE ART OF COMING HOME</span>
+        <h1 className="aakaar-hero-title">
+          <span>{heroSlides[heroSlide].title1}</span>
+          <em>{heroSlides[heroSlide].title2}</em>
         </h1>
-        <p className="hero-description">{heroSlides[heroSlide].desc}</p>
-        <div className="hero-actions">
-          <a href="#enquire" className="hero-enquire-btn hero-btn-primary" onClick={openEnquiryModal}>
-            <span>Enquire now</span>
-            <ArrowUpRight size={16} />
-          </a>
-          <a href="#residences" className="hero-enquire-btn hero-btn-secondary">
-            <span>Explore residences</span>
-            <ArrowDown size={15} />
-          </a>
+        <p className="aakaar-hero-description">{heroSlides[heroSlide].desc}</p>
+        <div className="aakaar-hero-actions">
+          <a href="#enquire" className="aakaar-hero-cta" onClick={openEnquiryModal}>Enquire now <ArrowUpRight size={17} /></a>
+          <a href="#residences" className="aakaar-hero-text-link">Explore residences <ArrowDown size={16} /></a>
         </div>
       </div>
     </div>
 
-    {/* Clean unboxed bottom bar with perfectly aligned controls */}
-    <div className="hero-bottom-bar">
-      <div className="hero-bottom-left">
-        <span className="hero-brand-note">A VISION BY ACRUX REALCON</span>
-        <span className="hero-render-note">Artist’s impression</span>
+    <nav className="aakaar-hero-social" aria-label="Acrux social media">
+      {heroSocials.map(({ label, href }) => (
+        <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`Acrux on ${label}`} title={label}>
+          <HeroSocialIcon label={label} />
+        </a>
+      ))}
+    </nav>
+
+    <div className="aakaar-hero-footer">
+      <div className="aakaar-hero-navigation" aria-label="Hero slider controls">
+        <button className="aakaar-hero-arrow" aria-label="Previous hero slide" onClick={prevHeroSlide}><ChevronLeft size={20} /></button>
+        <span className="aakaar-hero-count"><strong>0{heroSlide + 1}</strong><span>/</span>0{heroSlides.length}</span>
+        <button className="aakaar-hero-arrow" aria-label="Next hero slide" onClick={nextHeroSlide}><ChevronRight size={20} /></button>
       </div>
-      <div className="hero-controls">
-        <button className="hero-arrow" aria-label="Previous hero slide" onClick={prevHeroSlide}>
-          <ChevronLeft size={18} />
-        </button>
-        <div className="hero-dots" role="group" aria-label="Choose hero slide">
-          {heroSlides.map((_, i) => (
-            <button
-              key={i}
-              className={`hero-dot${heroSlide === i ? " active" : ""}`}
-              aria-label={`Show slide ${i + 1}`}
-              aria-pressed={heroSlide === i}
-              onClick={() => selectHeroSlide(i)}
-            >
-              {heroSlide === i && (
-                <span
-                  className="hero-dot-fill"
-                  style={{ width: `${heroProgress}%` }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
-        <button className="hero-arrow" aria-label="Next hero slide" onClick={nextHeroSlide}>
-          <ChevronRight size={18} />
-        </button>
-        <span className="hero-count">
-          <strong>0{heroSlide + 1}</strong>
-          <i>/</i>
-          <span>0{heroSlides.length}</span>
-        </span>
-      </div>
+      <span className="aakaar-hero-footer-note">A VISION BY ACRUX REALCON</span>
     </div>
-  </section>
- <div className="project-ribbon"><span>A signature address in Patia</span><span>G+3 Clubhouse <i/> Rooftop Sky Lounge <i/> 30+ Curated Amenities</span><a href="/brochure.pdf" download>Explore the brochure <Download size={16}/></a></div>
+ </section>
  <section id="overview" className="section overview"><Picture src={`${project}Entrance_Sunrise.webp`} alt="The Aakaar towers at sunrise, surrounded by green gardens"/><div className="overview-copy"><span className="eyebrow">01 / THE OVERVIEW</span><h2>A home above<br/><em>the everyday.</em></h2><p>Morning light across your living room. A quiet walk through green gardens. The city close by, yet a world of your own.</p><p>Welcome to Acrux Aakaar. Five distinctive towers in Patia, Bhubaneswar, bringing thoughtful architecture, open landscapes and everyday comforts together.</p><a href="#enquire" className="text-link" onClick={openEnquiryModal}>Find your place here <ArrowUpRight size={19}/></a></div>    <div className="overview-stats" ref={statsRef}>
       <div>
         <strong>
