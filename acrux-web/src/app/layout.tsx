@@ -47,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${gotham.variable} scroll-smooth`}>
-      <body className="font-sans bg-white text-[#121820] antialiased selection:bg-[#b38b36] selection:text-white">
+      <body className="font-sans bg-white text-[#222222] antialiased selection:bg-[#976932] selection:text-white">
         {children}
       </body>
     </html>

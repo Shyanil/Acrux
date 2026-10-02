@@ -82,12 +82,12 @@ export default function LocationProximity() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-bold">
             Prime Location & Connectivity
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-neutral-900 leading-tight">
             At the Epicenter of{" "}
-            <span className="italic font-normal text-[#b38b36]">Patia, Bhubaneswar</span>
+            <span className="italic font-normal text-[#976932]">Patia, Bhubaneswar</span>
           </h2>
           <p className="text-neutral-600 text-sm sm:text-base font-light leading-relaxed">
             Nestled in Bhubaneswar’s most vibrant growth corridor, surrounded by leading IT campuses,
@@ -96,13 +96,13 @@ export default function LocationProximity() {
         </div>
 
         {/* Address Banner in Warm Champagne & Gold */}
-        <div className="rounded-2xl bg-[#FAF8F5] border border-[#b38b36]/25 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 shadow-sm">
+        <div className="rounded-2xl bg-[#F7F5F0] border border-[#976932]/25 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#f7f2e7] border border-[#b38b36]/30 flex items-center justify-center text-[#b38b36] shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-[#F7F5F0] border border-[#976932]/30 flex items-center justify-center text-[#976932] shrink-0">
               <MapPin className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#b38b36] font-bold">
+              <span className="text-xs uppercase tracking-widest text-[#976932] font-bold">
                 Official Site Address
               </span>
               <h3 className="text-lg sm:text-xl font-serif text-neutral-900 font-semibold">
@@ -118,9 +118,9 @@ export default function LocationProximity() {
             href="https://maps.google.com/?q=Plot+No.+15W,+Chandrasekharpur,+Patia,+Bhubaneswar,+Odisha+751021"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3 rounded-full bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-300 hover:border-[#b38b36] text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-all shrink-0 shadow-2xs"
+            className="px-5 py-3 rounded-full bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-300 hover:border-[#976932] text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-all shrink-0 shadow-2xs"
           >
-            <Navigation className="w-4 h-4 text-[#b38b36]" />
+            <Navigation className="w-4 h-4 text-[#976932]" />
             <span>Open in Google Maps</span>
             <ExternalLink className="w-3.5 h-3.5 text-neutral-500" />
           </a>
@@ -137,7 +137,7 @@ export default function LocationProximity() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-all duration-300 ${
                   isActive
-                    ? "bg-[#b38b36] text-white shadow-md shadow-[#b38b36]/25 scale-105"
+                    ? "bg-[#976932] text-white shadow-md shadow-[#976932]/25 scale-105"
                     : "bg-neutral-100 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-200 border border-neutral-200"
                 }`}
               >
@@ -155,16 +155,16 @@ export default function LocationProximity() {
             {currentCategoryData.items.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-white border border-neutral-200 hover:border-[#b38b36] shadow-2xs hover:shadow-md transition-all flex items-center justify-between group"
+                className="p-4 rounded-xl bg-white border border-neutral-200 hover:border-[#976932] shadow-2xs hover:shadow-md transition-all flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#b38b36] group-hover:scale-150 transition-transform" />
+                  <div className="w-2 h-2 rounded-full bg-[#976932] group-hover:scale-150 transition-transform" />
                   <span className="text-sm font-semibold text-neutral-800 group-hover:text-neutral-900 transition-colors">
                     {item.name}
                   </span>
                 </div>
                 <div className="text-right shrink-0 ml-4">
-                  <span className="text-sm font-bold text-[#b38b36] font-serif block">
+                  <span className="text-sm font-bold text-[#976932] font-serif block">
                     {item.distance}
                   </span>
                   <span className="text-[11px] text-neutral-500 font-medium">{item.time}</span>
@@ -185,8 +185,8 @@ export default function LocationProximity() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <div className="absolute top-4 left-4 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-[#b38b36]/30 text-neutral-900 text-xs max-w-xs shadow-lg">
-              <div className="font-serif font-bold text-[#b38b36]">Acrux Aakaar Site</div>
+            <div className="absolute top-4 left-4 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-[#976932]/30 text-neutral-900 text-xs max-w-xs shadow-lg">
+              <div className="font-serif font-bold text-[#976932]">Acrux Aakaar Site</div>
               <div className="text-[11px] text-neutral-600 mt-0.5">
                 Plot No. 15W, Chandrasekharpur, Patia
               </div>

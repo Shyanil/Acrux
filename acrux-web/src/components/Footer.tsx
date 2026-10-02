@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#FAF8F5] text-neutral-600 text-xs border-t border-[#b38b36]/30 pb-24 sm:pb-12 pt-16">
+    <footer className="bg-[#F7F5F0] text-neutral-600 text-xs border-t border-[#976932]/30 pb-24 sm:pb-12 pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Col 1: Project Identity */}
@@ -27,7 +27,7 @@ export default function Footer() {
               Acrux Aakaar is an ultra-luxury residential masterwork by Acrux Realcon Pvt. Ltd.
               featuring 556 sun-kissed residences across 5 towering edifices in Patia, Bhubaneswar.
             </p>
-            <div className="text-[12px] text-[#b38b36] font-serif font-semibold">
+            <div className="text-[12px] text-[#976932] font-serif font-semibold">
               An Architectural Creation by Ar. Ramesh Swain
             </div>
           </div>
@@ -39,37 +39,37 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#overview" className="hover:text-[#b38b36] transition-colors">
+                <a href="#overview" className="hover:text-[#976932] transition-colors">
                   Overview &amp; Statement
                 </a>
               </li>
               <li>
-                <a href="#architect" className="hover:text-[#b38b36] transition-colors">
+                <a href="#architect" className="hover:text-[#976932] transition-colors">
                   Master Architect
                 </a>
               </li>
               <li>
-                <a href="#residences" className="hover:text-[#b38b36] transition-colors">
+                <a href="#residences" className="hover:text-[#976932] transition-colors">
                   2.5 &amp; 3 BHK Suites
                 </a>
               </li>
               <li>
-                <a href="#clubhouse" className="hover:text-[#b38b36] transition-colors">
+                <a href="#clubhouse" className="hover:text-[#976932] transition-colors">
                   G+3 Clubhouse
                 </a>
               </li>
               <li>
-                <a href="#amenities" className="hover:text-[#b38b36] transition-colors">
+                <a href="#amenities" className="hover:text-[#976932] transition-colors">
                   Curated Amenities
                 </a>
               </li>
               <li>
-                <a href="#master-plan" className="hover:text-[#b38b36] transition-colors">
+                <a href="#master-plan" className="hover:text-[#976932] transition-colors">
                   Site Master Plan
                 </a>
               </li>
               <li>
-                <a href="#location" className="hover:text-[#b38b36] transition-colors">
+                <a href="#location" className="hover:text-[#976932] transition-colors">
                   Patia Proximity
                 </a>
               </li>
@@ -83,13 +83,13 @@ export default function Footer() {
             </h4>
             <div className="space-y-2.5 text-xs text-neutral-600">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#b38b36] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#976932] shrink-0 mt-0.5" />
                 <span>
                   <strong className="text-neutral-900">Site:</strong> Plot No. 15W, Chandrasekharpur, Patia, Bhubaneswar, Odisha 751 021
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#b38b36] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#976932] shrink-0 mt-0.5" />
                 <span>
                   <strong className="text-neutral-900">Corporate:</strong> F33/F34 Chandaka Industrial Area Infocity, Bhubaneswar, Odisha 751024
                 </span>
@@ -104,21 +104,21 @@ export default function Footer() {
             </h4>
             <div className="space-y-2 text-xs text-neutral-600">
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#b38b36] shrink-0" />
-                <a href="tel:+919777543339" className="hover:text-[#b38b36] font-bold text-neutral-900">
+                <Phone className="w-4 h-4 text-[#976932] shrink-0" />
+                <a href="tel:+919777543339" className="hover:text-[#976932] font-bold text-neutral-900">
                   +91 97775 43339
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#b38b36] shrink-0" />
-                <a href="mailto:sales@acruxrealcon.in" className="hover:text-[#b38b36] font-medium text-neutral-800">
+                <Mail className="w-4 h-4 text-[#976932] shrink-0" />
+                <a href="mailto:sales@acruxrealcon.in" className="hover:text-[#976932] font-medium text-neutral-800">
                   sales@acruxrealcon.in
                 </a>
               </div>
               <div className="pt-2">
                 <button
                   onClick={scrollToTop}
-                  className="inline-flex items-center gap-2 text-xs text-[#b38b36] hover:text-[#8c6b25] font-semibold uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 text-xs text-[#976932] hover:text-[#7a5426] font-semibold uppercase tracking-wider"
                 >
                   <ArrowUp className="w-3.5 h-3.5" />
                   <span>Back to Top</span>
@@ -131,7 +131,7 @@ export default function Footer() {
         {/* Regulatory Disclaimer & RERA */}
         <div className="pt-8 border-t border-neutral-200 space-y-3 text-[11px] text-neutral-500 leading-relaxed font-light">
           <div className="flex items-center gap-2 text-neutral-800 font-semibold">
-            <ShieldCheck className="w-4 h-4 text-[#b38b36]" />
+            <ShieldCheck className="w-4 h-4 text-[#976932]" />
             <span>RERA Compliance &amp; Legal Transparency</span>
           </div>
           <p>

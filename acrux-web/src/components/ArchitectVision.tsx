@@ -29,16 +29,16 @@ export default function ArchitectVision() {
   ];
 
   return (
-    <section id="architect" className="py-24 lg:py-32 bg-[#FAF8F5] relative overflow-hidden border-t border-[#b38b36]/20">
+    <section id="architect" className="py-24 lg:py-32 bg-[#F7F5F0] relative overflow-hidden border-t border-[#976932]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header with exact requested text */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-bold">
             Visionary Architecture
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-neutral-900 leading-tight">
             A Living Masterpiece{" "}
-            <span className="italic font-normal text-[#b38b36]">By A Master Architect</span>
+            <span className="italic font-normal text-[#976932]">By A Master Architect</span>
           </h2>
           <p className="text-neutral-600 text-sm sm:text-base font-light leading-relaxed">
             Every tower, curve, and balcony at Acrux Aakaar has been crafted with deliberate purpose,
@@ -47,7 +47,7 @@ export default function ArchitectVision() {
         </div>
 
         {/* Architect Feature Box in Crisp White */}
-        <div className="rounded-3xl bg-white border border-[#b38b36]/25 overflow-hidden shadow-xl p-6 sm:p-10 lg:p-12 mb-16">
+        <div className="rounded-3xl bg-white border border-[#976932]/25 overflow-hidden shadow-xl p-6 sm:p-10 lg:p-12 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Architect Portrait */}
             <div className="lg:col-span-5 relative">
@@ -60,7 +60,7 @@ export default function ArchitectVision() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="text-xs uppercase tracking-widest text-[#f5e3b5] font-bold">
+                  <div className="text-xs uppercase tracking-widest text-[#976932] font-bold">
                     Chief Architect & Visionary
                   </div>
                   <div className="text-xl font-serif font-medium mt-0.5">
@@ -75,7 +75,7 @@ export default function ArchitectVision() {
 
             {/* Vision Narrative & Quote */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="p-3 w-fit rounded-xl bg-[#f7f2e7] text-[#b38b36]">
+              <div className="p-3 w-fit rounded-xl bg-[#F7F5F0] text-[#976932]">
                 <Quote className="w-8 h-8" />
               </div>
 
@@ -93,7 +93,7 @@ export default function ArchitectVision() {
               {/* Award / Credentials badge in White & Gold */}
               <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-neutral-200">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-full bg-[#f7f2e7] text-[#b38b36]">
+                  <div className="p-2.5 rounded-full bg-[#F7F5F0] text-[#976932]">
                     <Award className="w-5 h-5" />
                   </div>
                   <div>
@@ -107,7 +107,7 @@ export default function ArchitectVision() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-full bg-[#f7f2e7] text-[#b38b36]">
+                  <div className="p-2.5 rounded-full bg-[#F7F5F0] text-[#976932]">
                     <Compass className="w-5 h-5" />
                   </div>
                   <div>
@@ -131,9 +131,9 @@ export default function ArchitectVision() {
             return (
               <div
                 key={i}
-                className="p-6 rounded-2xl bg-white border border-neutral-200 shadow-sm hover:border-[#b38b36] hover:shadow-md transition-all duration-300"
+                className="p-6 rounded-2xl bg-white border border-neutral-200 shadow-sm hover:border-[#976932] hover:shadow-md transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#f7f2e7] flex items-center justify-center text-[#b38b36] mb-4">
+                <div className="w-10 h-10 rounded-lg bg-[#F7F5F0] flex items-center justify-center text-[#976932] mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h4 className="text-base font-serif font-medium text-neutral-900 mb-1.5">

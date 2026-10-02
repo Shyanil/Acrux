@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "npm --prefix acrux-web run dev",
+    "start": "npm --prefix acrux-web run start",
     "build": "node netlify-build.js"
   }
 }

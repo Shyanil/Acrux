@@ -27,7 +27,7 @@ export default function StickyFooterCTA({ onOpenBrochure, onOpenEnquiry }: Stick
         {/* Direct Call Float in Rich Gold */}
         <a
           href="tel:+919777543339"
-          className="w-12 h-12 rounded-full bg-[#b38b36] hover:bg-[#987532] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform group"
+          className="w-12 h-12 rounded-full bg-[#976932] hover:bg-[#102038] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform group"
           title="Call Sales Office"
         >
           <Phone className="w-5 h-5" />
@@ -35,13 +35,13 @@ export default function StickyFooterCTA({ onOpenBrochure, onOpenEnquiry }: Stick
       </div>
 
       {/* Mobile Bottom Sticky Action Bar in Crisp White & Gold */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-white/98 backdrop-blur-xl border-t border-[#b38b36]/30 py-2.5 px-4 shadow-2xl">
+      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-white/98 backdrop-blur-xl border-t border-[#976932]/30 py-2.5 px-4 shadow-2xl">
         <div className="grid grid-cols-4 gap-2">
           <a
             href="tel:+919777543339"
             className="flex flex-col items-center justify-center py-1.5 rounded-lg bg-neutral-50 border border-neutral-200 text-[10px] font-bold text-neutral-800"
           >
-            <Phone className="w-4 h-4 text-[#b38b36] mb-0.5" />
+            <Phone className="w-4 h-4 text-[#976932] mb-0.5" />
             <span>Call</span>
           </a>
 
@@ -59,13 +59,13 @@ export default function StickyFooterCTA({ onOpenBrochure, onOpenEnquiry }: Stick
             onClick={onOpenBrochure}
             className="flex flex-col items-center justify-center py-1.5 rounded-lg bg-neutral-50 border border-neutral-200 text-[10px] font-bold text-neutral-800"
           >
-            <Download className="w-4 h-4 text-[#b38b36] mb-0.5" />
+            <Download className="w-4 h-4 text-[#976932] mb-0.5" />
             <span>Brochure</span>
           </button>
 
           <button
             onClick={onOpenEnquiry}
-            className="flex flex-col items-center justify-center py-1.5 rounded-lg bg-[#b38b36] text-white text-[10px] font-bold uppercase tracking-wider shadow-md"
+            className="flex flex-col items-center justify-center py-1.5 rounded-lg bg-[#976932] text-white text-[10px] font-bold uppercase tracking-wider shadow-md"
           >
             <Calendar className="w-4 h-4 mb-0.5" />
             <span>Enquire</span>

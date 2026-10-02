@@ -122,10 +122,10 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#c5a059]/15 border border-[#c5a059]/40 backdrop-blur-md shadow-lg shadow-[#c5a059]/10"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#976932]/15 border border-[#976932]/40 backdrop-blur-md shadow-lg shadow-[#976932]/10"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#d4af37] animate-spin-slow" />
-              <span className="text-xs uppercase tracking-widest font-semibold text-[#f5e3b5]">
+              <span className="text-xs uppercase tracking-widest font-semibold text-[#976932]">
                 {current.badge}
               </span>
             </motion.div>
@@ -162,7 +162,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
               transition={{ duration: 0.8, delay: 0.2 }}
               className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1"
             >
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#c5a059]/40 transition-colors">
+              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#976932]/40 transition-colors">
                 <div className="flex items-center gap-1.5 text-[#d4af37] mb-1">
                   <Building className="w-3.5 h-3.5" />
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
@@ -173,7 +173,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
                 <div className="text-[10px] text-slate-400">5 High-Rise Towers</div>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#c5a059]/40 transition-colors">
+              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#976932]/40 transition-colors">
                 <div className="flex items-center gap-1.5 text-[#d4af37] mb-1">
                   <Layers className="w-3.5 h-3.5" />
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
@@ -184,7 +184,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
                 <div className="text-[10px] text-slate-400">Iconic Elevation</div>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#c5a059]/40 transition-colors">
+              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#976932]/40 transition-colors">
                 <div className="flex items-center gap-1.5 text-[#d4af37] mb-1">
                   <Trees className="w-3.5 h-3.5" />
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
@@ -195,7 +195,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
                 <div className="text-[10px] text-slate-400">Canal Frontage</div>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#c5a059]/40 transition-colors">
+              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md hover:border-[#976932]/40 transition-colors">
                 <div className="flex items-center gap-1.5 text-[#d4af37] mb-1">
                   <MapPin className="w-3.5 h-3.5" />
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
@@ -216,7 +216,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
             >
               <button
                 onClick={onOpenEnquiry}
-                className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#c5a059] to-[#b88f32] text-black font-semibold text-xs uppercase tracking-widest hover:brightness-110 hover:shadow-xl hover:shadow-[#d4af37]/25 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
+                className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#976932] to-[#b88f32] text-black font-semibold text-xs uppercase tracking-widest hover:brightness-110 hover:shadow-xl hover:shadow-[#d4af37]/25 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
               >
                 <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span>Book VIP Site Visit</span>
@@ -224,7 +224,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
 
               <button
                 onClick={onOpenBrochure}
-                className="px-6 py-3.5 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-[#c5a059]/40 text-slate-200 hover:text-white font-medium text-xs uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer hover:border-[#d4af37]"
+                className="px-6 py-3.5 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-[#976932]/40 text-slate-200 hover:text-white font-medium text-xs uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer hover:border-[#d4af37]"
               >
                 <Download className="w-4 h-4 text-[#d4af37]" />
                 <span>Download Brochure (PDF)</span>
@@ -244,7 +244,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-5"
           >
-            <div className="relative rounded-3xl bg-gradient-to-b from-[#131924]/95 via-[#0E131C]/95 to-[#090C12]/95 border border-[#c5a059]/35 p-6 sm:p-7 shadow-2xl backdrop-blur-xl">
+            <div className="relative rounded-3xl bg-gradient-to-b from-[#131924]/95 via-[#0E131C]/95 to-[#090C12]/95 border border-[#976932]/35 p-6 sm:p-7 shadow-2xl backdrop-blur-xl">
               <div className="absolute top-0 right-6 -translate-y-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-[#d4af37] to-[#b88f32] text-black text-[10px] font-bold uppercase tracking-wider shadow-md">
                 VIP Priority Access
               </div>
@@ -259,7 +259,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
               </div>
 
               {formSubmitted ? (
-                <div className="p-6 rounded-xl bg-[#c5a059]/10 border border-[#c5a059]/30 text-center space-y-3">
+                <div className="p-6 rounded-xl bg-[#976932]/10 border border-[#976932]/30 text-center space-y-3">
                   <CheckCircle className="w-10 h-10 text-[#d4af37] mx-auto animate-bounce" />
                   <h4 className="text-lg font-serif text-white">Thank You for Connecting!</h4>
                   <p className="text-xs text-slate-300">
@@ -315,7 +315,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
                           onClick={() => setFormData({ ...formData, unitType: type })}
                           className={`py-2 px-2 text-[11px] rounded-lg font-medium border text-center transition-all cursor-pointer ${
                             formData.unitType === type
-                              ? "bg-[#c5a059]/25 border-[#d4af37] text-[#f5e3b5] font-semibold"
+                              ? "bg-[#976932]/25 border-[#d4af37] text-[#976932] font-semibold"
                               : "bg-slate-950/50 border-slate-800 text-slate-400 hover:border-slate-700"
                           }`}
                         >
@@ -347,7 +347,7 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
           {/* Animated Progress Bar */}
           <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-[#d4af37] to-[#f5e3b5]"
+              className="h-full bg-gradient-to-r from-[#d4af37] to-[#976932]"
               style={{ width: `${progress}%` }}
               transition={{ ease: "linear" }}
             />

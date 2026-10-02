@@ -6,17 +6,17 @@ import { motion } from "framer-motion";
 export default function ProjectStats() {
   const stats = [
     {
-      number: "556",
+      number: "305",
       label: "Apartments",
       detail: "Ultra-luxury high-rise residences",
     },
     {
-      number: "5",
+      number: "2",
       label: "Towers",
-      detail: "Iconic B+S+21 floor elevations",
+      detail: "Distinctive B+S+11 floor elevations",
     },
     {
-      number: "60%",
+      number: "32%",
       label: "Open Greens",
       detail: "Manicured lawns & zen water bodies",
     },
@@ -28,7 +28,7 @@ export default function ProjectStats() {
   ];
 
   return (
-    <section className="py-20 bg-[#FBF9F5] border-y border-[#b38b36]/25 relative overflow-hidden">
+    <section className="py-20 bg-[#FBF9F5] border-y border-[#976932]/25 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200">
           {stats.map((stat, idx) => (
@@ -41,7 +41,7 @@ export default function ProjectStats() {
               className={`text-center space-y-2.5 ${idx !== 0 ? "sm:pl-8 pt-6 sm:pt-0" : ""}`}
             >
               {/* Visually Dominant Number in Rich Gold */}
-              <div className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-[#b38b36] tracking-tight">
+              <div className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-[#976932] tracking-tight">
                 {stat.number}
               </div>
 

@@ -28,16 +28,16 @@ export default function MasterPlanSection({ onOpenBrochure, onOpenEnquiry }: Mas
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
-    <section id="master-plan" className="py-24 lg:py-32 bg-[#FAF8F5] relative overflow-hidden border-t border-[#b38b36]/20">
+    <section id="master-plan" className="py-24 lg:py-32 bg-[#F7F5F0] relative overflow-hidden border-t border-[#976932]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-bold">
             Layout & Master Plan
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-neutral-900 leading-tight">
             An Intelligently Master-Planned{" "}
-            <span className="italic font-normal text-[#b38b36]">Sanctuary</span>
+            <span className="italic font-normal text-[#976932]">Sanctuary</span>
           </h2>
           <p className="text-neutral-600 text-sm sm:text-base font-light leading-relaxed">
             Sprawling across a prime land parcel along the Daya West Canal with a dedicated
@@ -50,7 +50,7 @@ export default function MasterPlanSection({ onOpenBrochure, onOpenEnquiry }: Mas
           {/* Top toolbar */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-4 border-b border-neutral-200">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-[#f7f2e7] text-[#b38b36]">
+              <div className="p-2 rounded-lg bg-[#F7F5F0] text-[#976932]">
                 <Layers className="w-5 h-5" />
               </div>
               <div>
@@ -64,12 +64,12 @@ export default function MasterPlanSection({ onOpenBrochure, onOpenEnquiry }: Mas
                 onClick={() => setLightboxOpen(true)}
                 className="px-4 py-2 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-xs font-semibold flex items-center gap-1.5 transition-all border border-neutral-200"
               >
-                <Maximize2 className="w-3.5 h-3.5 text-[#b38b36]" />
+                <Maximize2 className="w-3.5 h-3.5 text-[#976932]" />
                 <span>Zoom Fullscreen</span>
               </button>
               <button
                 onClick={onOpenBrochure}
-                className="px-4 py-2 rounded-xl bg-[#b38b36] hover:bg-[#987532] text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+                className="px-4 py-2 rounded-xl bg-[#976932] hover:bg-[#102038] text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download Master Plan</span>
@@ -89,8 +89,8 @@ export default function MasterPlanSection({ onOpenBrochure, onOpenEnquiry }: Mas
               className="object-contain p-2 group-hover:scale-102 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 rounded-full bg-white text-neutral-900 text-xs font-bold border border-[#b38b36]/40 backdrop-blur-md flex items-center gap-2 shadow-xl">
-                <Maximize2 className="w-4 h-4 text-[#b38b36]" />
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 rounded-full bg-white text-neutral-900 text-xs font-bold border border-[#976932]/40 backdrop-blur-md flex items-center gap-2 shadow-xl">
+                <Maximize2 className="w-4 h-4 text-[#976932]" />
                 Click to Expand Master Plan
               </span>
             </div>
@@ -101,7 +101,7 @@ export default function MasterPlanSection({ onOpenBrochure, onOpenEnquiry }: Mas
         <div className="space-y-4">
           <div className="flex items-center justify-between border-b border-neutral-200 pb-3">
             <h3 className="text-lg font-serif font-semibold text-neutral-900 flex items-center gap-2">
-              <Compass className="w-4 h-4 text-[#b38b36]" />
+              <Compass className="w-4 h-4 text-[#976932]" />
               <span>Master Plan Key Legends & Zoning Index</span>
             </h3>
             <span className="text-xs text-neutral-500 font-medium">12 Primary Architectural Landmarks</span>
@@ -111,9 +111,9 @@ export default function MasterPlanSection({ onOpenBrochure, onOpenEnquiry }: Mas
             {legends.map((item) => (
               <div
                 key={item.id}
-                className="p-3.5 rounded-xl bg-white border border-neutral-200 hover:border-[#b38b36] transition-all shadow-2xs hover:shadow-md flex items-start gap-3"
+                className="p-3.5 rounded-xl bg-white border border-neutral-200 hover:border-[#976932] transition-all shadow-2xs hover:shadow-md flex items-start gap-3"
               >
-                <div className="w-6 h-6 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                   {item.id}
                 </div>
                 <div>

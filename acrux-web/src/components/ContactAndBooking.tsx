@@ -35,12 +35,12 @@ export default function ContactAndBooking() {
           {/* Left Column: Office & Contact Info */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-xs font-bold uppercase tracking-[0.25em] text-[#b38b36]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-xs font-bold uppercase tracking-[0.25em] text-[#976932]">
                 Connect With Us
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-neutral-900 leading-tight">
                 Schedule Your Private{" "}
-                <span className="text-[#b38b36] italic font-normal">VIP Preview</span>
+                <span className="text-[#976932] italic font-normal">VIP Preview</span>
               </h2>
               <p className="text-neutral-600 text-sm font-light leading-relaxed">
                 Connect directly with our senior development advisory team for exclusive pre-launch
@@ -51,8 +51,8 @@ export default function ContactAndBooking() {
             {/* Contact Details List */}
             <div className="space-y-4">
               {/* Site Address */}
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-[#FAF8F5] border border-neutral-200/80 shadow-2xs">
-                <div className="p-2.5 rounded-lg bg-[#f7f2e7] text-[#b38b36] shrink-0 mt-0.5">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-[#F7F5F0] border border-neutral-200/80 shadow-2xs">
+                <div className="p-2.5 rounded-lg bg-[#F7F5F0] text-[#976932] shrink-0 mt-0.5">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -69,8 +69,8 @@ export default function ContactAndBooking() {
               </div>
 
               {/* Corporate Office */}
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-[#FAF8F5] border border-neutral-200/80 shadow-2xs">
-                <div className="p-2.5 rounded-lg bg-[#f7f2e7] text-[#b38b36] shrink-0 mt-0.5">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-[#F7F5F0] border border-neutral-200/80 shadow-2xs">
+                <div className="p-2.5 rounded-lg bg-[#F7F5F0] text-[#976932] shrink-0 mt-0.5">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -88,9 +88,9 @@ export default function ContactAndBooking() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <a
                   href="tel:+919777543339"
-                  className="flex items-center gap-3 p-4 rounded-xl bg-white border border-neutral-200 hover:border-[#b38b36] shadow-2xs hover:shadow-md transition-all"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-white border border-neutral-200 hover:border-[#976932] shadow-2xs hover:shadow-md transition-all"
                 >
-                  <Phone className="w-4 h-4 text-[#b38b36]" />
+                  <Phone className="w-4 h-4 text-[#976932]" />
                   <div>
                     <div className="text-[11px] text-neutral-500 font-medium">Direct Sales Line</div>
                     <div className="text-xs font-bold text-neutral-900">+91 97775 43339</div>
@@ -99,9 +99,9 @@ export default function ContactAndBooking() {
 
                 <a
                   href="mailto:sales@acruxrealcon.in"
-                  className="flex items-center gap-3 p-4 rounded-xl bg-white border border-neutral-200 hover:border-[#b38b36] shadow-2xs hover:shadow-md transition-all"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-white border border-neutral-200 hover:border-[#976932] shadow-2xs hover:shadow-md transition-all"
                 >
-                  <Mail className="w-4 h-4 text-[#b38b36]" />
+                  <Mail className="w-4 h-4 text-[#976932]" />
                   <div>
                     <div className="text-[11px] text-neutral-500 font-medium">Official Email</div>
                     <div className="text-xs font-bold text-neutral-900">sales@acruxrealcon.in</div>
@@ -131,8 +131,8 @@ export default function ContactAndBooking() {
               </a>
 
               {/* RERA Notice Box in Soft Gold */}
-              <div className="p-4 rounded-xl bg-[#f7f2e7] border border-[#b38b36]/30 flex items-start gap-3 text-xs text-neutral-700">
-                <ShieldCheck className="w-5 h-5 text-[#b38b36] shrink-0 mt-0.5" />
+              <div className="p-4 rounded-xl bg-[#F7F5F0] border border-[#976932]/30 flex items-start gap-3 text-xs text-neutral-700">
+                <ShieldCheck className="w-5 h-5 text-[#976932] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-neutral-900 block">RERA Statutory Compliance</span>
                   RERA Reg. No: PR/GJ/BHU/2026/AAKAAR (Applied &amp; In Process). All project deliverables adhere to state regulatory guidelines.
@@ -143,7 +143,7 @@ export default function ContactAndBooking() {
 
           {/* Right Column: Interactive Schedule & Enquiry Form in Crisp White & Gold */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#b38b36]/30 shadow-2xl">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#976932]/30 shadow-2xl">
               <div className="space-y-2 mb-8">
                 <h3 className="text-2xl font-serif text-neutral-900 font-medium">
                   Request Detailed Pricing &amp; Site Visit
@@ -154,12 +154,12 @@ export default function ContactAndBooking() {
               </div>
 
               {submitted ? (
-                <div className="p-10 rounded-2xl bg-[#f7f2e7] border border-[#b38b36]/30 text-center space-y-4">
-                  <CheckCircle className="w-14 h-14 text-[#b38b36] mx-auto animate-bounce" />
+                <div className="p-10 rounded-2xl bg-[#F7F5F0] border border-[#976932]/30 text-center space-y-4">
+                  <CheckCircle className="w-14 h-14 text-[#976932] mx-auto animate-bounce" />
                   <h4 className="text-2xl font-serif text-neutral-900 font-semibold">Preview Request Confirmed!</h4>
                   <p className="text-sm text-neutral-700 max-w-md mx-auto font-light leading-relaxed">
                     Thank you, <strong className="text-neutral-900">{form.name}</strong>. Your inquiry for{" "}
-                    <strong className="text-[#b38b36]">{form.unit}</strong> has been logged. Our
+                    <strong className="text-[#976932]">{form.unit}</strong> has been logged. Our
                     relationship manager will contact you at{" "}
                     <strong className="text-neutral-900">+91 {form.phone}</strong> shortly.
                   </p>
@@ -183,7 +183,7 @@ export default function ContactAndBooking() {
                         placeholder="e.g. Priyabrata Pattnaik"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
                       />
                     </div>
 
@@ -202,7 +202,7 @@ export default function ContactAndBooking() {
                           placeholder="10-digit mobile"
                           value={form.phone}
                           onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                          className="w-full px-4 py-3 rounded-r-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                          className="w-full px-4 py-3 rounded-r-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
                         />
                       </div>
                     </div>
@@ -218,7 +218,7 @@ export default function ContactAndBooking() {
                         placeholder="yourname@domain.com"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
                       />
                     </div>
 
@@ -229,7 +229,7 @@ export default function ContactAndBooking() {
                       <select
                         value={form.unit}
                         onChange={(e) => setForm({ ...form, unit: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
                       >
                         <option value="2.5 BHK (1790 Sq. Ft.)">2.5 BHK (1,790 Sq. Ft.)</option>
                         <option value="3 BHK (2148 Sq. Ft.)">3 BHK (2,148 Sq. Ft.)</option>
@@ -246,7 +246,7 @@ export default function ContactAndBooking() {
                       type="date"
                       value={form.date}
                       onChange={(e) => setForm({ ...form, date: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
                     />
                   </div>
 
@@ -259,13 +259,13 @@ export default function ContactAndBooking() {
                       placeholder="e.g. Looking for high floor unit with Daya canal view, payment schedule..."
                       value={form.notes}
                       onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-[#b38b36] hover:bg-[#987532] text-white font-bold text-xs uppercase tracking-[0.2em] shadow-xl shadow-[#b38b36]/25 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                    className="w-full py-4 rounded-xl bg-[#976932] hover:bg-[#102038] text-white font-bold text-xs uppercase tracking-[0.2em] shadow-xl shadow-[#976932]/25 transition-all flex items-center justify-center gap-2 group cursor-pointer"
                   >
                     <span>Schedule VIP Site Preview</span>
                     <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

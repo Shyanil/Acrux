@@ -101,10 +101,10 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#b38b36]/40 text-neutral-900 text-xs font-semibold tracking-[0.25em] uppercase shadow-xl"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#976932]/40 text-neutral-900 text-xs font-semibold tracking-[0.25em] uppercase shadow-xl"
           >
-            <span className="w-2 h-2 rounded-full bg-[#b38b36] animate-pulse" />
-            <MapPin className="w-3.5 h-3.5 text-[#b38b36]" />
+            <span className="w-2 h-2 rounded-full bg-[#976932] animate-pulse" />
+            <MapPin className="w-3.5 h-3.5 text-[#976932]" />
             <span>Chandrasekharpur, Patia, Bhubaneswar</span>
           </motion.div>
 
@@ -116,7 +116,7 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
             className="space-y-2"
           >
             <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-light text-white tracking-tight leading-[1.08] drop-shadow-md">
-              ACRUX <span className="font-normal text-[#f5e3b5]">AAKAAR</span>
+              ACRUX <span className="font-normal text-[#976932]">AAKAAR</span>
             </h1>
           </motion.div>
 
@@ -150,7 +150,7 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
           >
             <a
               href="#residences"
-              className="px-7 py-3.5 rounded-full bg-[#b38b36] hover:bg-[#987532] text-white text-xs font-semibold uppercase tracking-[0.2em] shadow-xl hover:shadow-[0_0_25px_rgba(179,139,54,0.4)] transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 group"
+              className="px-7 py-3.5 rounded-full bg-[#976932] hover:bg-[#102038] text-white text-xs font-semibold uppercase tracking-[0.2em] shadow-xl hover:shadow-[0_0_25px_rgba(151,105,50,0.4)] transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 group"
             >
               <span>Explore Residences</span>
               <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
@@ -158,17 +158,17 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
 
             <button
               onClick={onOpenEnquiry}
-              className="px-7 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-white text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg flex items-center gap-2 hover:border-[#b38b36]"
+              className="px-7 py-3.5 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-white text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-lg flex items-center gap-2 hover:border-[#976932]"
             >
-              <Calendar className="w-3.5 h-3.5 text-[#b38b36]" />
+              <Calendar className="w-3.5 h-3.5 text-[#976932]" />
               <span>Enquire Now</span>
             </button>
 
             <button
               onClick={onOpenBrochure}
-              className="px-5 py-3.5 text-xs text-white hover:text-[#f5e3b5] tracking-widest uppercase transition-colors flex items-center gap-2 underline underline-offset-8 decoration-white/60 hover:decoration-[#f5e3b5] font-medium"
+              className="px-5 py-3.5 text-xs text-white hover:text-[#976932] tracking-widest uppercase transition-colors flex items-center gap-2 underline underline-offset-8 decoration-white/60 hover:decoration-[#976932] font-medium"
             >
-              <Download className="w-3.5 h-3.5 text-[#f5e3b5]" />
+              <Download className="w-3.5 h-3.5 text-[#976932]" />
               <span>Download Brochure</span>
             </button>
           </motion.div>
@@ -178,7 +178,7 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
         <div className="py-6 flex items-center justify-between border-b border-white/20 mt-8">
           {/* Slide Indicator Dots & Numbers */}
           <div className="flex items-center gap-4">
-            <span className="text-xs font-mono text-[#f5e3b5] tracking-widest font-bold">
+            <span className="text-xs font-mono text-[#976932] tracking-widest font-bold">
               0{currentSlide + 1}
             </span>
             <div className="flex gap-2">
@@ -188,7 +188,7 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
                   onClick={() => setCurrentSlide(idx)}
                   className={`h-1.5 transition-all duration-300 rounded-full ${
                     idx === currentSlide
-                      ? "w-8 bg-[#b38b36]"
+                      ? "w-8 bg-[#976932]"
                       : "w-2 bg-white/40 hover:bg-white/70"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
@@ -221,12 +221,12 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
       </div>
 
       {/* Bottom Horizontal Project Information Strip in Pure Architectural White */}
-      <div className="relative z-10 w-full bg-white/98 backdrop-blur-xl border-t border-[#b38b36]/30 py-5 sm:py-6 shadow-2xl">
+      <div className="relative z-10 w-full bg-white/98 backdrop-blur-xl border-t border-[#976932]/30 py-5 sm:py-6 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200">
             {/* Info 1 */}
             <div className="space-y-1">
-              <span className="text-[10px] tracking-[0.25em] text-[#b38b36] uppercase font-bold block">
+              <span className="text-[10px] tracking-[0.25em] text-[#976932] uppercase font-bold block">
                 Prime Location
               </span>
               <p className="text-sm font-semibold text-neutral-900">
@@ -237,7 +237,7 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
 
             {/* Info 2 */}
             <div className="space-y-1 sm:pl-8 pt-4 sm:pt-0">
-              <span className="text-[10px] tracking-[0.25em] text-[#b38b36] uppercase font-bold block">
+              <span className="text-[10px] tracking-[0.25em] text-[#976932] uppercase font-bold block">
                 Configurations
               </span>
               <p className="text-sm font-semibold text-neutral-900">
@@ -248,7 +248,7 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
 
             {/* Info 3 */}
             <div className="space-y-1 sm:pl-8 pt-4 sm:pt-0">
-              <span className="text-[10px] tracking-[0.25em] text-[#b38b36] uppercase font-bold block">
+              <span className="text-[10px] tracking-[0.25em] text-[#976932] uppercase font-bold block">
                 Project Scale
               </span>
               <p className="text-sm font-semibold text-neutral-900">
@@ -259,7 +259,7 @@ export default function Hero({ onOpenBrochure, onOpenEnquiry }: HeroProps) {
 
             {/* Info 4 */}
             <div className="space-y-1 sm:pl-8 pt-4 sm:pt-0">
-              <span className="text-[10px] tracking-[0.25em] text-[#b38b36] uppercase font-bold block">
+              <span className="text-[10px] tracking-[0.25em] text-[#976932] uppercase font-bold block">
                 Expanse & Nature
               </span>
               <p className="text-sm font-semibold text-neutral-900">

@@ -109,13 +109,13 @@ export default function GallerySection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="space-y-4 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-bold">
-              <Sparkles className="w-3.5 h-3.5 text-[#b38b36]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-bold">
+              <Sparkles className="w-3.5 h-3.5 text-[#976932]" />
               <span>Visual Portfolio</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif text-neutral-900 font-light tracking-tight leading-tight">
               A Glimpse Into{" "}
-              <span className="italic font-normal text-[#b38b36]">
+              <span className="italic font-normal text-[#976932]">
                 Grandeur
               </span>
             </h2>
@@ -138,7 +138,7 @@ export default function GallerySection() {
                 onClick={() => setActiveCategory(tab.id)}
                 className={`px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold transition-all ${
                   activeCategory === tab.id
-                    ? "bg-[#b38b36] text-white shadow-md shadow-[#b38b36]/25"
+                    ? "bg-[#976932] text-white shadow-md shadow-[#976932]/25"
                     : "bg-neutral-100 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-200 border border-neutral-200"
                 }`}
               >
@@ -172,13 +172,13 @@ export default function GallerySection() {
 
               <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider text-[#f5e3b5] block font-bold">
+                  <span className="text-[10px] uppercase tracking-wider text-[#976932] block font-bold">
                     {image.category}
                   </span>
                   <h4 className="text-sm font-serif font-medium">{image.title}</h4>
                 </div>
                 <div className="p-2 rounded-full bg-white/95 text-neutral-900 shadow-md">
-                  <Maximize2 className="w-3.5 h-3.5 text-[#b38b36]" />
+                  <Maximize2 className="w-3.5 h-3.5 text-[#976932]" />
                 </div>
               </div>
             </motion.div>
@@ -251,7 +251,7 @@ export default function GallerySection() {
                     {filteredImages[lightboxIndex].caption}
                   </p>
                 </div>
-                <div className="text-xs font-mono text-[#f5e3b5] font-bold">
+                <div className="text-xs font-mono text-[#976932] font-bold">
                   {lightboxIndex + 1} / {filteredImages.length}
                 </div>
               </div>

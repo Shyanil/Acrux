@@ -36,7 +36,7 @@ export default function MortgageCalculator({ onOpenEnquiry }: CalculatorProps) {
     <section className="py-20 bg-[#0A0E15] relative overflow-hidden border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#c5a059]/10 border border-[#c5a059]/30 text-xs font-semibold uppercase tracking-widest text-[#d4af37]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#976932]/10 border border-[#976932]/30 text-xs font-semibold uppercase tracking-widest text-[#d4af37]">
             <Calculator className="w-3.5 h-3.5" />
             Financial Planning
           </div>
@@ -54,7 +54,7 @@ export default function MortgageCalculator({ onOpenEnquiry }: CalculatorProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl bg-gradient-to-br from-[#121822] via-[#0E131C] to-[#0A0D14] border border-[#c5a059]/30 p-6 sm:p-10 shadow-2xl"
+          className="rounded-3xl bg-gradient-to-br from-[#121822] via-[#0E131C] to-[#0A0D14] border border-[#976932]/30 p-6 sm:p-10 shadow-2xl"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Sliders Column */}
@@ -91,7 +91,7 @@ export default function MortgageCalculator({ onOpenEnquiry }: CalculatorProps) {
                   <span className="uppercase tracking-wider font-semibold text-slate-300">
                     Interest Rate (% p.a.)
                   </span>
-                  <span className="text-lg font-bold text-[#f5e3b5] font-serif">
+                  <span className="text-lg font-bold text-[#976932] font-serif">
                     {interestRate}%
                   </span>
                 </div>
@@ -117,7 +117,7 @@ export default function MortgageCalculator({ onOpenEnquiry }: CalculatorProps) {
                   <span className="uppercase tracking-wider font-semibold text-slate-300">
                     Loan Tenure (Years)
                   </span>
-                  <span className="text-lg font-bold text-[#f5e3b5] font-serif">
+                  <span className="text-lg font-bold text-[#976932] font-serif">
                     {tenureYears} Years
                   </span>
                 </div>
@@ -161,7 +161,7 @@ export default function MortgageCalculator({ onOpenEnquiry }: CalculatorProps) {
                 </div>
                 <div className="flex justify-between text-slate-300">
                   <span>Total Amount (P + I):</span>
-                  <span className="font-semibold text-[#f5e3b5]">{formatLakhCrore(totalPayment)}</span>
+                  <span className="font-semibold text-[#976932]">{formatLakhCrore(totalPayment)}</span>
                 </div>
               </div>
 

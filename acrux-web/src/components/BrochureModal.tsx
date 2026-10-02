@@ -29,7 +29,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative w-full max-w-lg rounded-3xl bg-white border border-[#b38b36]/30 shadow-2xl p-6 sm:p-8">
+      <div className="relative w-full max-w-lg rounded-3xl bg-white border border-[#976932]/30 shadow-2xl p-6 sm:p-8">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -39,7 +39,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         </button>
 
         <div className="text-center space-y-3 mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] flex items-center justify-center mx-auto">
+          <div className="w-14 h-14 rounded-2xl bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] flex items-center justify-center mx-auto">
             <FileText className="w-7 h-7" />
           </div>
           <h3 className="text-2xl font-serif text-neutral-900 font-semibold">
@@ -52,8 +52,8 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         </div>
 
         {downloaded ? (
-          <div className="p-6 rounded-2xl bg-[#f7f2e7] border border-[#b38b36]/30 text-center space-y-4">
-            <CheckCircle className="w-12 h-12 text-[#b38b36] mx-auto animate-bounce" />
+          <div className="p-6 rounded-2xl bg-[#F7F5F0] border border-[#976932]/30 text-center space-y-4">
+            <CheckCircle className="w-12 h-12 text-[#976932] mx-auto animate-bounce" />
             <h4 className="text-xl font-serif text-neutral-900 font-semibold">Download Started!</h4>
             <p className="text-xs text-neutral-700">
               The official Acrux Aakaar brochure PDF is downloading to your device.
@@ -62,7 +62,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
               href="/brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block py-2.5 px-6 rounded-full bg-[#b38b36] hover:bg-[#987532] text-xs font-bold text-white uppercase tracking-wider transition-all shadow-md"
+              className="inline-block py-2.5 px-6 rounded-full bg-[#976932] hover:bg-[#102038] text-xs font-bold text-white uppercase tracking-wider transition-all shadow-md"
             >
               Click Here to View Online
             </a>
@@ -79,7 +79,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                 placeholder="e.g. Ramesh Mohanty"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
               />
             </div>
 
@@ -98,14 +98,14 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                   placeholder="10-digit number"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-r-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#b38b36] transition-colors"
+                  className="w-full px-4 py-2.5 rounded-r-xl bg-neutral-50 border border-neutral-300 text-neutral-900 placeholder-neutral-400 text-sm focus:bg-white focus:outline-none focus:border-[#976932] transition-colors"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-[#b38b36] hover:bg-[#987532] text-white font-bold text-xs uppercase tracking-[0.2em] shadow-lg shadow-[#b38b36]/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 rounded-xl bg-[#976932] hover:bg-[#102038] text-white font-bold text-xs uppercase tracking-[0.2em] shadow-lg shadow-[#976932]/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Download className="w-4 h-4" />
               <span>Download Brochure PDF</span>

@@ -179,7 +179,7 @@ export default function WaterCursor() {
         // Draw primary concentric water ripple ring
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(173, 216, 235, ${r.opacity.toFixed(3)})`;
+        ctx.strokeStyle = `rgba(151, 105, 50, ${(r.opacity * 0.45).toFixed(3)})`;
         ctx.lineWidth = Math.max(0.6, 1.8 * (r.opacity / 0.7));
         ctx.stroke();
 
@@ -187,7 +187,7 @@ export default function WaterCursor() {
         if (r.radius > 9) {
           ctx.beginPath();
           ctx.arc(r.x, r.y, Math.max(1, r.radius - 7), 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${(r.opacity * 0.5).toFixed(3)})`;
+          ctx.strokeStyle = `rgba(255, 255, 255, ${(r.opacity * 0.4).toFixed(3)})`;
           ctx.lineWidth = Math.max(0.5, 1.2 * (r.opacity / 0.7));
           ctx.stroke();
         }
@@ -196,7 +196,7 @@ export default function WaterCursor() {
         if (r.isSplash && r.radius > 16) {
           ctx.beginPath();
           ctx.arc(r.x, r.y, Math.max(1, r.radius - 15), 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(173, 63, 60, ${(r.opacity * 0.35).toFixed(3)})`;
+          ctx.strokeStyle = `rgba(151, 105, 50, ${(r.opacity * 0.35).toFixed(3)})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }

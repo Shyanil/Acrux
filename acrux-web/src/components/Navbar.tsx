@@ -37,7 +37,7 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-[#b38b36]/25 py-3 shadow-[0_4px_25px_rgba(0,0,0,0.05)]"
+            ? "bg-white/95 backdrop-blur-md border-b border-[#976932]/25 py-3 shadow-[0_4px_25px_rgba(0,0,0,0.05)]"
             : "bg-white/85 backdrop-blur-md border-b border-black/5 py-4"
         }`}
       >
@@ -62,7 +62,7 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-xs uppercase tracking-[0.2em] text-neutral-800 hover:text-[#b38b36] transition-colors duration-200 font-medium"
+                  className="text-xs uppercase tracking-[0.2em] text-neutral-800 hover:text-[#976932] transition-colors duration-200 font-medium"
                 >
                   {link.name}
                 </a>
@@ -73,23 +73,23 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
             <div className="hidden md:flex items-center space-x-3">
               <a
                 href="tel:+919777543339"
-                className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-neutral-800 hover:text-[#b38b36] rounded-full border border-neutral-300 hover:border-[#b38b36] transition-all duration-200 bg-white shadow-2xs"
+                className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-neutral-800 hover:text-[#976932] rounded-full border border-neutral-300 hover:border-[#976932] transition-all duration-200 bg-white shadow-2xs"
               >
-                <Phone className="w-3.5 h-3.5 text-[#b38b36]" />
+                <Phone className="w-3.5 h-3.5 text-[#976932]" />
                 <span className="font-mono text-[11px] font-semibold">+91 97775 43339</span>
               </a>
 
               <button
                 onClick={onOpenBrochure}
-                className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium tracking-wider uppercase text-neutral-800 bg-[#f7f2e7] hover:bg-[#efe6d3] border border-[#b38b36]/30 rounded-full transition-all duration-200"
+                className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium tracking-wider uppercase text-neutral-800 bg-[#F7F5F0] hover:bg-[#efe6d3] border border-[#976932]/30 rounded-full transition-all duration-200"
               >
-                <Download className="w-3.5 h-3.5 text-[#b38b36]" />
+                <Download className="w-3.5 h-3.5 text-[#976932]" />
                 <span>Brochure</span>
               </button>
 
               <button
                 onClick={onOpenEnquiry}
-                className="flex items-center gap-1.5 px-5 py-2 text-xs font-semibold tracking-wider uppercase text-white bg-[#b38b36] hover:bg-[#987532] rounded-full transition-all duration-200 shadow-md shadow-[#b38b36]/25"
+                className="flex items-center gap-1.5 px-5 py-2 text-xs font-semibold tracking-wider uppercase text-white bg-[#976932] hover:bg-[#102038] rounded-full transition-all duration-200 shadow-md shadow-[#976932]/25"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Enquire</span>
@@ -100,13 +100,13 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
             <div className="flex md:hidden items-center space-x-2">
               <button
                 onClick={onOpenEnquiry}
-                className="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-[#b38b36] text-white rounded-full"
+                className="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-[#976932] text-white rounded-full"
               >
                 Enquire
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-neutral-800 hover:text-[#b38b36] rounded-lg focus:outline-none"
+                className="p-2 text-neutral-800 hover:text-[#976932] rounded-lg focus:outline-none"
                 aria-label="Toggle Navigation Menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -125,7 +125,7 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-serif tracking-wider text-neutral-900 hover:text-[#b38b36] transition-colors py-2.5 border-b border-neutral-100"
+                className="text-base font-serif tracking-wider text-neutral-900 hover:text-[#976932] transition-colors py-2.5 border-b border-neutral-100"
               >
                 {link.name}
               </a>
@@ -137,7 +137,7 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
               href="tel:+919777543339"
               className="w-full flex items-center justify-center gap-2 py-3 rounded-full border border-neutral-300 text-neutral-900 text-xs font-semibold uppercase tracking-wider bg-white"
             >
-              <Phone className="w-4 h-4 text-[#b38b36]" />
+              <Phone className="w-4 h-4 text-[#976932]" />
               <span>Call +91 97775 43339</span>
             </a>
 
@@ -146,9 +146,9 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenBrochure();
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-neutral-900 text-xs font-semibold uppercase tracking-wider"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-neutral-900 text-xs font-semibold uppercase tracking-wider"
             >
-              <Download className="w-4 h-4 text-[#b38b36]" />
+              <Download className="w-4 h-4 text-[#976932]" />
               <span>Download Brochure</span>
             </button>
 
@@ -157,7 +157,7 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenEnquiry();
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#b38b36] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#b38b36]/30"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#976932] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#976932]/30"
             >
               <Calendar className="w-4 h-4" />
               <span>Schedule VIP Preview</span>

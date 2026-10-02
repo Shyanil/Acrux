@@ -113,14 +113,14 @@ export default function AmenitiesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header with exact requested heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-bold">
-            <Sparkles className="w-3.5 h-3.5 text-[#b38b36]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-bold">
+            <Sparkles className="w-3.5 h-3.5 text-[#976932]" />
             <span>Lifestyle Perfection</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-serif text-neutral-900 font-light leading-tight">
             Amenities Chosen For Comfort,{" "}
-            <span className="italic font-normal text-[#b38b36]">
+            <span className="italic font-normal text-[#976932]">
               Perfected For A Complete Lifestyle
             </span>
           </h2>
@@ -140,7 +140,7 @@ export default function AmenitiesSection() {
                   onClick={() => setActiveTab(idx)}
                   className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold transition-all flex items-center gap-2 ${
                     isActive
-                      ? "bg-[#b38b36] text-white shadow-md shadow-[#b38b36]/25"
+                      ? "bg-[#976932] text-white shadow-md shadow-[#976932]/25"
                       : "bg-neutral-100 border border-neutral-200 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-200"
                   }`}
                 >
@@ -186,7 +186,7 @@ export default function AmenitiesSection() {
 
                   {/* Bottom Content: Clean 2-Word Title and Short Micro-Line */}
                   <div className="absolute bottom-5 left-5 right-5 text-white">
-                    <h3 className="text-xl font-serif font-normal text-white group-hover:text-[#f5e3b5] transition-colors">
+                    <h3 className="text-xl font-serif font-normal text-white group-hover:text-[#976932] transition-colors">
                       {item.name}
                     </h3>
                     <p className="text-xs text-neutral-200 font-light mt-1 line-clamp-2">

@@ -2,7 +2,7 @@
 import WaterCursor from "@/components/WaterCursor";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronLeft, ChevronRight, Download, Menu, X, MapPin, Phone, Plus, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Compass, Download, Maximize2, Menu, X, MapPin, Phone, Plus, Sparkles } from "lucide-react";
 const project = "/assets/Project/";
 const gallery = [["Entrance_Dusk.webp", "An arrival to remember"], ["Master_Elevation.webp", "A new perspective on the city"], ["Rooftop_Sky_Lounge.webp", "Evenings above the everyday"], ["Zen_Pond.webp", "A moment of stillness"]];
 const heroSlides = [
@@ -12,7 +12,7 @@ const heroSlides = [
     title1: "Life, Beautifully",
     title2: "Shaped.",
     scene: "01 / THE ARCHITECTURE",
-    desc: "556 ultra-luxury residences across 5 soaring 21-storey towers with 60% open landscaped greens.",
+    desc: "305 thoughtfully designed residences across 2 distinctive 11-storey towers with 32% open spaces.",
     alt: "Acrux Aakaar iconic residential towers surrounded by landscaped gardens"
   },
   {
@@ -53,7 +53,121 @@ function HeroSocialIcon({ label }: { label: string }) {
   if (label === "Instagram") return <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>;
   return <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" strokeWidth="1.8" /><path d="m10 9 5 3-5 3V9Z" fill="currentColor" /></svg>;
 }
-const amenities = [["Rooftop_Sky_Lounge.webp", "Sky lounge", "A little closer to the stars."], ["Podium_Garden.webp", "Podium gardens", "Room to wander. Space to breathe."], ["Zen_Pond.webp", "Zen pond", "Find your own quiet corner."], ["Rooftop_Pergola.webp", "Rooftop pergola", "Slow mornings. Unhurried evenings."], ["Central_Lawn.webp", "Central lawn", "More room for life outdoors."], ["Plaza_Blocks_AB.webp", "Community plaza", "Where neighbours become friends."]];
+const amenities = [["Rooftop_Sky_Lounge.webp", "Sky lounge", "A little closer to the stars."], ["Podium_Garden.webp", "Podium gardens", "Room to wander. Space to breathe."], ["Zen_Pond.webp", "Zen pond", "Find your own quiet corner."], ["Rooftop_Pergola.webp", "Rooftop pergola", "Slow mornings. Unhurried evenings."], ["Central_Lawn.webp", "Central lawn", "More room for life outdoors."], ["Plaza_Blocks_AB.webp", "Community plaza", "Where neighbours become friends."], ["Plaza_Blocks_CD.webp", "Landscaped courtyards", "Sunlit avenues and tranquil walkways."]];
+
+interface MasterPlanHotspot {
+  id: number;
+  num: string;
+  name: string;
+  tag: string;
+  type: string;
+  desc: string;
+  x: number;
+  y: number;
+}
+
+const masterPlanHotspots: MasterPlanHotspot[] = [
+  {
+    id: 1,
+    num: "01",
+    name: "Block A1",
+    tag: "B+S+P+17",
+    type: "Residential Tower",
+    desc: "Luxury 2.5 & 3 BHK residences overlooking the landscaped central court.",
+    x: 22.2,
+    y: 52.8,
+  },
+  {
+    id: 2,
+    num: "02",
+    name: "Block A2",
+    tag: "B+S+P+17",
+    type: "Residential Tower",
+    desc: "Corner residences with dual aspect balconies and panoramic northern views.",
+    x: 31.4,
+    y: 47.8,
+  },
+  {
+    id: 3,
+    num: "03",
+    name: "Block B1",
+    tag: "B+S+21",
+    type: "Residential Tower",
+    desc: "High-rise residences with expansive views across the Daya West Canal promenade.",
+    x: 24.8,
+    y: 65.8,
+  },
+  {
+    id: 4,
+    num: "04",
+    name: "Block B2",
+    tag: "B+S+21",
+    type: "Residential Tower",
+    desc: "Elevated tower living oriented for maximum daylight and natural ventilation.",
+    x: 35.8,
+    y: 65.8,
+  },
+  {
+    id: 5,
+    num: "05",
+    name: "Block C",
+    tag: "B+S+21",
+    type: "Residential Tower",
+    desc: "Central tower commanding direct views over the community greens & clubhouse.",
+    x: 56.0,
+    y: 49.0,
+  },
+  {
+    id: 6,
+    num: "06",
+    name: "Block D",
+    tag: "B+S+21",
+    type: "Residential Tower",
+    desc: "High-rise living flanked by tranquil water bodies and landscaped walkways.",
+    x: 66.5,
+    y: 53.0,
+  },
+  {
+    id: 7,
+    num: "07",
+    name: "Block E",
+    tag: "B+S+21",
+    type: "Residential Tower",
+    desc: "East-wing residences nestled in quiet privacy with dedicated peripheral driveways.",
+    x: 78.0,
+    y: 47.5,
+  },
+  {
+    id: 8,
+    num: "08",
+    name: "Clubhouse",
+    tag: "G+3 Floors",
+    type: "Club & Amenities",
+    desc: "Exclusive G+3 lifestyle club with fitness studio, banquet, theatre & swimming pool.",
+    x: 53.2,
+    y: 61.8,
+  },
+  {
+    id: 9,
+    num: "09",
+    name: "Central Courtyard",
+    tag: "Podium Garden",
+    type: "Landscape & Leisure",
+    desc: "Pedestrian-safe landscaped garden with amphitheatre, walking paths & pergolas.",
+    x: 29.5,
+    y: 56.5,
+  },
+  {
+    id: 10,
+    num: "10",
+    name: "Grand Entry Boulevard",
+    tag: "12.19m Wide",
+    type: "Access & Security",
+    desc: "Grand boulevard entrance providing smooth vehicular access and manned security.",
+    x: 18.2,
+    y: 76.5,
+  },
+];
 const nav = [["Overview", "overview"], ["Residences", "residences"], ["Amenities", "amenities"], ["Gallery", "gallery"], ["Location", "location"]];
 function Picture({ src, alt, className = "", priority = false }: { src: string; alt: string; className?: string; priority?: boolean }) { return <div className={`picture ${className}`}><Image src={src} alt={alt} fill sizes="(max-width: 700px) 100vw, 75vw" className="picture-image" priority={priority} /></div>; }
 function StatCounter({
@@ -129,15 +243,172 @@ export default function Home() {
  const [menuOpen, setMenuOpen] = useState(false);
  const [scrolled, setScrolled] = useState(false);
  const [unit, setUnit] = useState(1);
- const [allAmenities, setAllAmenities] = useState(false);
  const [slide, setSlide] = useState(0);
  const [heroSlide, setHeroSlide] = useState(0);
+ const [amenitySlide, setAmenitySlide] = useState(0);
+ const [amenityHovered, setAmenityHovered] = useState(false);
+ const [visibleAmenities, setVisibleAmenities] = useState(3);
  const [enquiryOpen, setEnquiryOpen] = useState(false);
   const [enquirySubmitted, setEnquirySubmitted] = useState(false);
   const [modalResidence, setModalResidence] = useState("3 BHK");
   const [statsVisible, setStatsVisible] = useState(false);
+  const [hoveredHotspot, setHoveredHotspot] = useState<number | null>(null);
+  const [selectedHotspot, setSelectedHotspot] = useState<number | null>(null);
+  const [planFullscreen, setPlanFullscreen] = useState(false);
+  const [legendCollapsed, setLegendCollapsed] = useState(false);
+  const [modalLegendCollapsed, setModalLegendCollapsed] = useState(false);
+  const activeSpotId = hoveredHotspot ?? selectedHotspot;
+  const activeSpot = masterPlanHotspots.find((s) => s.id === activeSpotId);
+
+  // Capture & Persist UTM Marketing Parameters on Landing
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const utmSource = params.get("utm_source");
+      const utmMedium = params.get("utm_medium");
+      const utmCampaign = params.get("utm_campaign");
+      const utmTerm = params.get("utm_term");
+      const utmContent = params.get("utm_content");
+
+      if (utmSource) sessionStorage.setItem("acrux_utm_source", utmSource);
+      if (utmMedium) sessionStorage.setItem("acrux_utm_medium", utmMedium);
+      if (utmCampaign) sessionStorage.setItem("acrux_utm_campaign", utmCampaign);
+      if (utmTerm) sessionStorage.setItem("acrux_utm_term", utmTerm);
+      if (utmContent) sessionStorage.setItem("acrux_utm_content", utmContent);
+
+      if (document.referrer && !sessionStorage.getItem("acrux_referrer")) {
+        sessionStorage.setItem("acrux_referrer", document.referrer);
+      }
+    } catch (err) {
+      console.error("Error reading UTM parameters:", err);
+    }
+  }, []);
+
+  const getUtmData = () => {
+    if (typeof window === "undefined") return {};
+    return {
+      utm_source: sessionStorage.getItem("acrux_utm_source") || "direct",
+      utm_medium: sessionStorage.getItem("acrux_utm_medium") || "none",
+      utm_campaign: sessionStorage.getItem("acrux_utm_campaign") || "general",
+      utm_term: sessionStorage.getItem("acrux_utm_term") || undefined,
+      utm_content: sessionStorage.getItem("acrux_utm_content") || undefined,
+      referrer: sessionStorage.getItem("acrux_referrer") || (typeof document !== "undefined" ? document.referrer : "Direct"),
+    };
+  };
+
+  const handleInlineEnquirySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") || "");
+    const phone = String(data.get("phone") || "");
+    const email = String(data.get("email") || "");
+    const residence = String(data.get("residence") || "3 BHK");
+    const utm = getUtmData();
+
+    // Persist lead to database with UTM source tracking
+    try {
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          residence,
+          sourceForm: "inline_enquiry",
+          ...utm,
+        }),
+      });
+    } catch (err) {
+      console.error("Lead submission error:", err);
+    }
+
+    const message = `Hello, I am ${name}. I am interested in ${residence} at Acrux Aakaar. Please contact me at ${phone}${email ? ` or ${email}` : ""} to discuss a site visit.`;
+    window.open(`https://wa.me/919777543339?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+  };
+
+  const handleConciergeModalSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") || "");
+    const phone = String(data.get("phone") || "");
+    const email = String(data.get("email") || "");
+    const timeSlot = String(data.get("timeSlot") || "");
+    const utm = getUtmData();
+
+    // Persist lead to database with UTM source tracking
+    try {
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          residence: modalResidence,
+          timeSlot,
+          sourceForm: "concierge_modal",
+          ...utm,
+        }),
+      });
+    } catch (err) {
+      console.error("Lead submission error:", err);
+    }
+
+    let message = "Hello Acrux Realcon Sales Team, I would like to request a private preview of Acrux Aakaar (Patia, Bhubaneswar).\n\n";
+    message += "*Name:* " + name + "\n";
+    message += "*Contact:* " + phone + "\n";
+    if (email) message += "*Email:* " + email + "\n";
+    message += "*Configuration Interest:* " + modalResidence + "\n";
+    if (timeSlot) message += "*Preferred Preview Timing:* " + timeSlot + "\n";
+
+    window.open(
+      "https://wa.me/919777543339?text=" + encodeURIComponent(message),
+      "_blank",
+      "noopener,noreferrer"
+    );
+    setEnquirySubmitted(true);
+  };
+
   const statsRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const updateVisible = () => {
+      if (typeof window === "undefined") return;
+      if (window.innerWidth <= 640) setVisibleAmenities(1);
+      else if (window.innerWidth <= 1024) setVisibleAmenities(2);
+      else setVisibleAmenities(3);
+    };
+    updateVisible();
+    window.addEventListener("resize", updateVisible, { passive: true });
+    return () => window.removeEventListener("resize", updateVisible);
+  }, []);
+
+  const maxAmenitySlide = Math.max(0, amenities.length - visibleAmenities);
+
+  useEffect(() => {
+    if (amenitySlide > maxAmenitySlide) {
+      setAmenitySlide(maxAmenitySlide);
+    }
+  }, [maxAmenitySlide, amenitySlide]);
+
+  useEffect(() => {
+    if (amenityHovered) return;
+    const interval = setInterval(() => {
+      setAmenitySlide((curr) => (curr >= maxAmenitySlide ? 0 : curr + 1));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [amenityHovered, maxAmenitySlide]);
+
+  const prevAmenity = () => {
+    setAmenitySlide((curr) => (curr <= 0 ? maxAmenitySlide : curr - 1));
+  };
+
+  const nextAmenity = () => {
+    setAmenitySlide((curr) => (curr >= maxAmenitySlide ? 0 : curr + 1));
+  };
 
   useEffect(() => {
     const el = statsRef.current;
@@ -174,14 +445,15 @@ export default function Home() {
      if (frame) window.cancelAnimationFrame(frame);
    };
  }, []);
-   useEffect(() => {
+  useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setEnquiryOpen(false);
         setLightbox(null);
+        setPlanFullscreen(false);
       }
     };
-    if (enquiryOpen || lightbox) {
+    if (enquiryOpen || lightbox || planFullscreen) {
       window.addEventListener("keydown", onKeyDown);
       document.body.style.overflow = "hidden";
     }
@@ -189,7 +461,7 @@ export default function Home() {
       window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
     };
-  }, [enquiryOpen, lightbox]);
+  }, [enquiryOpen, lightbox, planFullscreen]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -209,7 +481,7 @@ export default function Home() {
  return <main className="aakaar-site" id="top">
  <a href="#overview" className="skip-link">Skip to content</a>
  <header className={`site-header${scrolled ? " is-scrolled" : ""}`}><a href="#top" className="brand" aria-label="Acrux Aakaar home"><Image src="/assets/Aakaar Logo.webp" alt="Acrux Aakaar" width={160} height={65} priority /></a><nav aria-label="Main navigation" className="desktop-nav">{nav.map(([label,id]) => <a href={`#${id}`} key={id}>{label}</a>)}</nav><a href="#enquire" className="header-enquire" onClick={openEnquiryModal}>Enquire now <ArrowUpRight size={16}/></a><button className="menu-toggle" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</button></header>
- {menuOpen && <nav className="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">{nav.map(([label,id]) => <a href={`#${id}`} key={id} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={20}/></a>)}<a href="#enquire" onClick={(e) => { setMenuOpen(false); openEnquiryModal(e); }} style={{ color: "#ad3f3c", fontWeight: 600 }}>Enquire now <ArrowUpRight size={20}/></a></nav>}
+ {menuOpen && <nav className="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">{nav.map(([label,id]) => <a href={`#${id}`} key={id} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={20}/></a>)}<a href="#enquire" onClick={(e) => { setMenuOpen(false); openEnquiryModal(e); }} style={{ color: "var(--color-gold)", fontWeight: 600 }}>Enquire now <ArrowUpRight size={20}/></a></nav>}
  <section className="aakaar-hero" ref={heroRef} aria-label="Introducing Acrux Aakaar">
     <div className="aakaar-hero-slides">
       {heroSlides.map((item, index) => (
@@ -229,8 +501,10 @@ export default function Home() {
 
     <div className="aakaar-hero-inner">
       <div className="aakaar-hero-copy" key={heroSlide}>
-        <div className="aakaar-hero-kicker"><span />{heroSlides[heroSlide].tag}</div>
-        <span className="aakaar-hero-overline">THE ART OF COMING HOME</span>
+        <div className="aakaar-hero-overline">
+          <span className="hero-beacon" />
+          <span>THE ART OF COMING HOME</span>
+        </div>
         <h1 className="aakaar-hero-title">
           <span>{heroSlides[heroSlide].title1}</span>
           <em>{heroSlides[heroSlide].title2}</em>
@@ -260,42 +534,425 @@ export default function Home() {
       <span className="aakaar-hero-footer-note">A VISION BY ACRUX REALCON</span>
     </div>
  </section>
- <section id="overview" className="section overview"><Picture src={`${project}Entrance_Sunrise.webp`} alt="The Aakaar towers at sunrise, surrounded by green gardens"/><div className="overview-copy"><span className="eyebrow">01 / THE OVERVIEW</span><h2>A home above<br/><em>the everyday.</em></h2><p>Morning light across your living room. A quiet walk through green gardens. The city close by, yet a world of your own.</p><p>Welcome to Acrux Aakaar. Five distinctive towers in Patia, Bhubaneswar, bringing thoughtful architecture, open landscapes and everyday comforts together.</p><a href="#enquire" className="text-link" onClick={openEnquiryModal}>Find your place here <ArrowUpRight size={19}/></a></div>    <div className="overview-stats" ref={statsRef}>
+  <section id="overview" className="section overview"><Picture src={`${project}Entrance_Sunrise.webp`} alt="The Aakaar towers at sunrise, surrounded by green gardens"/><div className="overview-copy"><span className="eyebrow">01 / THE OVERVIEW</span><h2>A home above<br/><em>the everyday.</em></h2><p>Morning light across your living room. A quiet walk through green gardens. The city close by, yet a world of your own.</p><p>Welcome to Acrux Aakaar. Two distinctive towers in Patia, Bhubaneswar, bringing thoughtful architecture, open landscapes and everyday comforts together.</p><a href="#enquire" className="text-link" onClick={openEnquiryModal}>Find your place here <ArrowUpRight size={19}/></a></div>    <div className="overview-stats" ref={statsRef}>
       <div>
         <strong>
-          <StatCounter target={556} shouldStart={statsVisible} duration={3000} holdTime={3000} />
+          <StatCounter target={305} shouldStart={statsVisible} duration={3000} holdTime={3000} />
         </strong>
         <span className="stat-label">Thoughtfully designed homes</span>
       </div>
       <div>
         <strong>
-          <StatCounter target={5} shouldStart={statsVisible} duration={3000} holdTime={3000} />
+          <StatCounter target={2} shouldStart={statsVisible} duration={3000} holdTime={3000} />
         </strong>
         <span className="stat-label">Distinctive towers</span>
       </div>
       <div>
         <strong>
-          <StatCounter prefix="B+S+" target={21} shouldStart={statsVisible} duration={3000} holdTime={3000} />
+          <StatCounter prefix="B+S+" target={11} shouldStart={statsVisible} duration={3000} holdTime={3000} />
         </strong>
         <span className="stat-label">An elevated perspective</span>
       </div>
       <div>
         <strong>
-          <StatCounter target={60} suffix="%" shouldStart={statsVisible} duration={3000} holdTime={3000} />
+          <StatCounter target={32} suffix="%" shouldStart={statsVisible} duration={3000} holdTime={3000} />
         </strong>
         <span className="stat-label">Open spaces</span>
       </div>
     </div></section>
- <section id="residences" className="residences section"><div className="section-heading"><span className="eyebrow">02 / YOUR PRIVATE WORLD</span><h2>Space for everything.<br/><em>Especially you.</em></h2></div><div className="residence-layout"><Picture src="/assets/Interiors/Living_Dining_Room.webp" alt="Aakaar living and dining room opening onto a balcony"/><div className="residence-details"><p className="eyebrow">THE RESIDENCES</p><div className="unit-tabs" aria-label="Residence configuration">{["2.5 BHK","3 BHK"].map((label,i) => <button key={label} aria-pressed={unit===i} onClick={() => setUnit(i)}>{label}</button>)}</div><div aria-live="polite"><h3>{unit ? "A little more room to call your own." : "Your home. Your possibilities."}</h3><p>{unit ? "Three bedrooms, welcoming shared spaces and room for every part of your day." : "Two bedrooms and a versatile study for work, creativity or a quiet retreat."}</p><div className="residence-size"><strong>{unit ? "2,148" : "1,790"}</strong><span>sq. ft.</span></div></div><a href="/brochure.pdf" download className="text-link">Explore plans &amp; details <ArrowUpRight size={20}/></a></div></div></section>
- <section id="amenities" className="section amenities"><div className="heading-row"><div className="section-heading"><span className="eyebrow">03 / LIFE BEYOND YOUR HOME</span><h2>The everyday.<br/><em>Made extraordinary.</em></h2></div><p>From peaceful gardens to evenings on the rooftop,<br/>make time for the things that make you feel alive.</p></div><div className="amenities-grid">{amenities.slice(0,allAmenities ? 6 : 3).map(([src,title,desc],i) => <article key={src}><button className="image-button" onClick={() => openImage(project+src,title)} aria-label={`View ${title}`}><Picture src={project+src} alt={title}/><span className="image-expand"><Plus size={20}/></span></button><div className="amenity-caption"><span>0{i+1}</span><div><h3>{title}</h3><p>{desc}</p></div></div></article>)}</div><button className="outline-button amenities-more" aria-expanded={allAmenities} onClick={() => setAllAmenities(!allAmenities)}>{allAmenities ? "Show less" : "Explore more amenities"}<Plus size={16}/></button></section>
- <section id="clubhouse" className="clubhouse"><Picture src={`${project}Clubhouse_Exterior.webp`} alt="The landscaped Aakaar clubhouse"/><div className="clubhouse-copy"><span className="eyebrow">A SPACE TO COME TOGETHER</span><h2>Your days.<br/><em>With more possibilities.</em></h2><p>A G+3 clubhouse for a workout, a celebration, a film with friends, or simply a welcome change of pace.</p><div className="club-links">{[["GYM.webp","Fitness studio"],["AV_ROOM.webp","Private theatre"],["SOCIETY HALL.webp","Society hall"]].map(([src,name]) => <button key={src} onClick={() => openImage(`/assets/CLUB RENDERS/${src}`,name)}>{name}<ArrowUpRight size={18}/></button>)}</div></div></section>
- <section id="gallery" className="section gallery"><div className="heading-row"><div className="section-heading"><span className="eyebrow">04 / A CLOSER LOOK</span><h2>Picture your life <em>here.</em></h2></div><div className="gallery-controls"><button onClick={() => setSlide((slide+gallery.length-1)%gallery.length)} aria-label="Previous gallery image"><ArrowLeft size={20}/></button><button onClick={() => setSlide((slide+1)%gallery.length)} aria-label="Next gallery image"><ArrowRight size={20}/></button></div></div><button className="image-button gallery-image" onClick={() => openImage(project+gallery[slide][0],gallery[slide][1])} aria-label={`Enlarge ${gallery[slide][1]}`}><Picture src={project+gallery[slide][0]} alt={gallery[slide][1]}/><span className="render-caption">Artist’s impression</span><span className="image-expand"><Plus size={22}/></span></button><div className="gallery-caption" aria-live="polite"><h3>{gallery[slide][1]}</h3><div><span>0{slide+1}</span> / 0{gallery.length}</div></div></section>
- <section id="master-plan" className="section master-plan"><div><span className="eyebrow">THOUGHTFULLY PLANNED</span><h2>A place for life<br/><em>to unfold.</em></h2><p>Homes, gardens and shared spaces, considered together. Explore how the five towers come together around the landscaped heart of Aakaar.</p><button className="text-link" onClick={() => openImage(project+"Master_Plan.webp","Aakaar master plan")}>View the master plan <ArrowUpRight size={20}/></button></div><button className="image-button" onClick={() => openImage(project+"Master_Plan.webp","Aakaar master plan")} aria-label="Enlarge master plan"><Picture src={`${project}Master_Plan.webp`} alt="Aakaar site master plan"/></button></section>
+  <section id="residences" className="residences section"><div className="section-heading"><span className="eyebrow">02 / YOUR PRIVATE WORLD</span><h2>Space for everything.<br/><em>Especially you.</em></h2></div><div className="residence-layout"><Picture src="/assets/Interiors/Living_Dining_Room.webp" alt="Aakaar living and dining room opening onto a balcony"/><div className="residence-details"><p className="eyebrow">THE RESIDENCES</p><div className="unit-tabs" aria-label="Residence configuration">{["2.5 BHK","3 BHK"].map((label,i) => <button key={label} aria-pressed={unit===i} onClick={() => setUnit(i)}>{label}</button>)}</div><div aria-live="polite"><h3>{unit ? "A little more room to call your own." : "Your home. Your possibilities."}</h3><p>{unit ? "Three bedrooms, welcoming shared spaces and room for every part of your day." : "Two bedrooms and a versatile study for work, creativity or a quiet retreat."}</p><div className="residence-size"><strong>{unit ? "2,148" : "1,790"}</strong><span>sq. ft.</span></div></div><a href="/brochure.pdf" download className="text-link">Explore plans &amp; details <ArrowUpRight size={20}/></a></div></div></section>
+  <section id="amenities" className="section amenities">
+    <div className="heading-row">
+      <div className="section-heading">
+        <span className="eyebrow">03 / LIFE BEYOND YOUR HOME</span>
+        <h2>The everyday.<br/><em>Made extraordinary.</em></h2>
+      </div>
+      <div className="amenities-heading-right">
+        <p>
+          From peaceful gardens to evenings on the rooftop,<br />make time for the things that make you feel alive.
+        </p>
+        <div className="amenities-controls" aria-label="Amenities carousel navigation">
+          <button
+            onClick={prevAmenity}
+            className="amenities-arrow"
+            aria-label="Previous amenities slide"
+          >
+            <ArrowLeft size={18} />
+          </button>
+          <button
+            onClick={nextAmenity}
+            className="amenities-arrow"
+            aria-label="Next amenities slide"
+          >
+            <ArrowRight size={18} />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      className="amenities-carousel-wrapper"
+      onMouseEnter={() => setAmenityHovered(true)}
+      onMouseLeave={() => setAmenityHovered(false)}
+      onTouchStart={() => setAmenityHovered(true)}
+      onTouchEnd={() => setAmenityHovered(false)}
+    >
+      <div
+        className="amenities-carousel-track"
+        style={{
+          '--amenity-index': amenitySlide,
+          '--visible-amenities': visibleAmenities,
+        } as React.CSSProperties}
+      >
+        {amenities.map(([src, title, desc], i) => (
+          <article key={src} className="amenity-slide">
+            <button
+              className="image-button"
+              onClick={() => openImage(project + src, title)}
+              aria-label={`View ${title}`}
+            >
+              <Picture src={project + src} alt={title} />
+              <span className="image-expand"><Plus size={20} /></span>
+            </button>
+            <div className="amenity-caption">
+              <span>0{i + 1}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div className="amenities-pagination" aria-label="Amenities carousel indicators">
+      {Array.from({ length: maxAmenitySlide + 1 }).map((_, idx) => (
+        <button
+          key={idx}
+          className={`amenities-dot ${amenitySlide === idx ? "is-active" : ""}`}
+          onClick={() => setAmenitySlide(idx)}
+          aria-label={`Go to slide ${idx + 1}`}
+        />
+      ))}
+    </div>
+  </section>
+  <section id="clubhouse" className="clubhouse"><Picture src={`${project}Clubhouse_Exterior.webp`} alt="The landscaped Aakaar clubhouse"/><div className="clubhouse-copy"><span className="eyebrow">A SPACE TO COME TOGETHER</span><h2>Your days.<br/><em>With more possibilities.</em></h2><p>A G+3 clubhouse for a workout, a celebration, a film with friends, or simply a welcome change of pace.</p><div className="club-links">{[["GYM.webp","Fitness studio"],["AV_ROOM.webp","Private theatre"],["SOCIETY HALL.webp","Society hall"]].map(([src,name]) => <button key={src} onClick={() => openImage(`/assets/CLUB RENDERS/${src}`,name)}>{name}<ArrowUpRight size={18}/></button>)}</div></div></section>
+  <section id="gallery" className="section gallery"><div className="heading-row"><div className="section-heading"><span className="eyebrow">04 / A CLOSER LOOK</span><h2>Picture your life <em>here.</em></h2></div><div className="gallery-controls"><button onClick={() => setSlide((slide+gallery.length-1)%gallery.length)} aria-label="Previous gallery image"><ArrowLeft size={20}/></button><button onClick={() => setSlide((slide+1)%gallery.length)} aria-label="Next gallery image"><ArrowRight size={20}/></button></div></div><button className="image-button gallery-image" onClick={() => openImage(project+gallery[slide][0],gallery[slide][1])} aria-label={`Enlarge ${gallery[slide][1]}`}><Picture src={project+gallery[slide][0]} alt={gallery[slide][1]}/><span className="render-caption">Artist’s impression</span><span className="image-expand"><Plus size={22}/></span></button><div className="gallery-caption" aria-live="polite"><h3>{gallery[slide][1]}</h3><div><span>0{slide+1}</span> / 0{gallery.length}</div></div></section>
+  <section id="master-plan" className="section master-plan-section">
+    {/* 1. Compact Editorial Introduction (Top-Left Composition) */}
+    <div className="master-plan-top-editorial">
+      <div className="top-editorial-heading">
+        <span className="eyebrow">THOUGHTFULLY PLANNED</span>
+        <h2>A place for life <em>to unfold.</em></h2>
+      </div>
+      <div className="top-editorial-right">
+        <p>Explore how the towers, clubhouse and landscaped spaces come together.</p>
+        <div className="top-editorial-actions">
+          <button
+            type="button"
+            className="top-editorial-btn"
+            onClick={() => setPlanFullscreen(true)}
+            aria-label="Open fullscreen master plan explorer"
+          >
+            <Maximize2 size={13} />
+            <span>Fullscreen Plan</span>
+          </button>
+          <a href="/brochure.pdf" download className="top-editorial-link">
+            <Download size={13} />
+            <span>Brochure</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* 2. Full-Width Architectural Master Plan Board */}
+    <div className="master-plan-board">
+      <div className="master-plan-canvas">
+        <Image
+          src={project + "Master_Plan.webp"}
+          alt="Acrux Aakaar comprehensive architectural site master plan"
+          width={2528}
+          height={1425}
+          priority={false}
+          className="master-plan-full-image"
+          sizes="(max-width: 1600px) 100vw, 1600px"
+        />
+
+
+
+        {/* 4. Numbered Map Markers */}
+        {masterPlanHotspots.map((spot) => {
+          const isActive = activeSpotId === spot.id;
+          const isDimmed = activeSpotId !== null && !isActive;
+          const isNearTop = spot.y < 30;
+          const isNearRight = spot.x > 70;
+          const isNearLeft = spot.x < 24;
+
+          return (
+            <div
+              key={spot.id}
+              className={`master-marker-node ${isActive ? "is-active" : ""} ${isDimmed ? "is-dimmed" : ""}`}
+              style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+            >
+              <button
+                type="button"
+                className="master-marker-circle"
+                onMouseEnter={() => setHoveredHotspot(spot.id)}
+                onMouseLeave={() => setHoveredHotspot(null)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedHotspot(selectedHotspot === spot.id ? null : spot.id);
+                }}
+                aria-label={`Hotspot ${spot.num}: ${spot.name} (${spot.tag})`}
+                aria-expanded={isActive}
+              >
+                <span className="marker-ping" aria-hidden="true" />
+                <span className="marker-num-text">{spot.num}</span>
+              </button>
+
+              {/* Tooltip on Hover/Active */}
+              {isActive && (
+                <div
+                  className={`marker-float-tooltip ${isNearTop ? "pos-bottom" : "pos-top"} ${isNearRight ? "pos-right" : isNearLeft ? "pos-left" : "pos-center"}`}
+                  role="tooltip"
+                >
+                  <div className="marker-tooltip-header">
+                    <span className="marker-tooltip-num">{spot.num}</span>
+                    <span className="marker-tooltip-type">{spot.type}</span>
+                  </div>
+                  <h4 className="marker-tooltip-title">{spot.name}</h4>
+                  <span className="marker-tooltip-tag">{spot.tag}</span>
+                  <p className="marker-tooltip-desc">{spot.desc}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+
+        {/* 5. Desktop Floating Legend Panel (Top-Right, Compact & Non-Overlapping) */}
+        <aside className={`master-plan-floating-legend ${legendCollapsed ? "is-collapsed" : ""}`} aria-label="Master Plan Architectural Index">
+          <div className="floating-legend-header">
+            <div className="floating-legend-title-row">
+              <div className="floating-legend-title-left">
+                <Compass size={12} className="floating-legend-compass" />
+                <span className="floating-legend-eyebrow">MASTER PLAN</span>
+              </div>
+              <button
+                type="button"
+                className="floating-legend-toggle"
+                onClick={() => setLegendCollapsed(!legendCollapsed)}
+                aria-label={legendCollapsed ? "Expand legend" : "Minimize legend"}
+                title={legendCollapsed ? "Expand legend" : "Minimize legend"}
+              >
+                {legendCollapsed ? <ChevronDown size={13} /> : <ChevronUp size={13} />}
+              </button>
+            </div>
+            {!legendCollapsed && <p className="floating-legend-subtitle">EXPLORE THE DEVELOPMENT</p>}
+          </div>
+
+          {!legendCollapsed && (
+            <div className="floating-legend-list" role="list">
+              {masterPlanHotspots.map((spot) => {
+                const isActive = activeSpotId === spot.id;
+                return (
+                  <button
+                    key={spot.id}
+                    type="button"
+                    role="listitem"
+                    className={`floating-legend-item ${isActive ? "is-active" : ""}`}
+                    onMouseEnter={() => setHoveredHotspot(spot.id)}
+                    onMouseLeave={() => setHoveredHotspot(null)}
+                    onClick={() => setSelectedHotspot(selectedHotspot === spot.id ? null : spot.id)}
+                    aria-label={`Highlight landmark ${spot.num}: ${spot.name}`}
+                  >
+                    <span className="fl-num">{spot.num}</span>
+                    <span className="fl-name">{spot.name}</span>
+                    <span className="fl-tag">{spot.tag}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+
+    {/* 6. Mobile Active Landmark Card (Below Map) */}
+    {activeSpot && (
+      <div className="mobile-active-card" aria-live="polite">
+        <div className="mobile-card-badge">
+          <span className="mobile-card-num">{activeSpot.num}</span>
+          <span className="mobile-card-type">{activeSpot.type}</span>
+        </div>
+        <div className="mobile-card-content">
+          <div className="mobile-card-heading">
+            <h4>{activeSpot.name}</h4>
+            <span className="mobile-card-tag">{activeSpot.tag}</span>
+          </div>
+          <p>{activeSpot.desc}</p>
+        </div>
+        <button
+          type="button"
+          className="mobile-card-close"
+          onClick={() => { setSelectedHotspot(null); setHoveredHotspot(null); }}
+          aria-label="Dismiss landmark details"
+        >
+          <X size={15} />
+        </button>
+      </div>
+    )}
+
+    {/* 7. Mobile Architectural Legend Grid (Below Map on Mobile) */}
+    <div className="mobile-master-plan-legend" role="list" aria-label="Master plan architectural index">
+      <div className="mobile-legend-header">
+        <Compass size={13} />
+        <span>MASTER PLAN INDEX</span>
+      </div>
+      <div className="mobile-legend-grid">
+        {masterPlanHotspots.map((spot) => {
+          const isActive = activeSpotId === spot.id;
+          return (
+            <button
+              key={spot.id}
+              type="button"
+              role="listitem"
+              className={`mobile-legend-btn ${isActive ? "is-active" : ""}`}
+              onClick={() => setSelectedHotspot(selectedHotspot === spot.id ? null : spot.id)}
+              aria-label={`Highlight landmark ${spot.num}: ${spot.name}`}
+            >
+              <span className="fl-num">{spot.num}</span>
+              <span className="fl-line" aria-hidden="true" />
+              <span className="fl-name">{spot.name}</span>
+              <span className="fl-tag">{spot.tag}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
  <section id="architect" className="architect section"><Picture src={`${project}Architect_Portrait.webp`} alt="Architect Ramesh Swain"/><div><span className="eyebrow">THE MIND BEHIND THE VISION</span><h2>Imagined with care.<br/><em>Designed for living.</em></h2><p>Architecture by Ar. Ramesh Swain, bringing natural light, open views and considered spaces into the way you live.</p><span className="architect-name">Ar. Ramesh Swain <small>PROJECT ARCHITECT</small></span></div></section>
- <section id="location" className="section location"><div className="section-heading"><span className="eyebrow">05 / CONNECTED TO YOUR WORLD</span><h2>The city at your doorstep.<br/><em>Calm at your heart.</em></h2></div><div className="location-layout"><div className="location-address"><MapPin size={28} strokeWidth={1}/><h3>Patia, Bhubaneswar</h3><p>Plot No. 15W, Chandrasekharpur,<br/>Patia, Bhubaneswar, Odisha 751021</p><a className="text-link" href="https://www.google.com/maps/search/?api=1&query=Acrux+Aakaar+Patia+Bhubaneswar" target="_blank" rel="noopener noreferrer">Open in Google Maps <ArrowUpRight size={20}/></a></div><div className="nearby"><p className="eyebrow">EVERYDAY CONNECTIONS</p>{[["01","Education","KIIT University · SAI International School"],["02","Work","Infocity · TCS · Infosys"],["03","Healthcare","KIMS · Care Hospitals"],["04","Connectivity","Patia railway station · Nandankanan Road"]].map(([num,title,text]) => <div key={num}><span>{num}</span><div><h3>{title}</h3><p>{text}</p></div><ArrowUpRight size={18}/></div>)}</div></div></section>
- <section className="resources"><div><span className="eyebrow">TAKE A CLOSER LOOK</span><h2>The details make <em>the difference.</em></h2></div><a href="/brochure.pdf" download><span>Project brochure<small>RESIDENCES, PLANS &amp; AMENITIES</small></span><Download size={26} strokeWidth={1}/></a></section>
- <section id="enquire" className="section enquiry"><div><span className="eyebrow">LET’S START A CONVERSATION</span><h2>Your next chapter<br/><em>begins here.</em></h2><p>Discover Aakaar in person. Connect with our team for residence details or to arrange your visit.</p><a href="tel:+919777543339" className="contact-phone">+91 97775 43339 <ArrowUpRight size={20}/></a><a href="mailto:sales@acruxrealcon.in">sales@acruxrealcon.in</a></div><form onSubmit={(e) => { e.preventDefault(); const data=new FormData(e.currentTarget); const message=`Hello, I am ${data.get("name")}. I am interested in ${data.get("residence")} at Acrux Aakaar. Please contact me at ${data.get("phone")}${data.get("email") ? ` or ${data.get("email")}` : ""} to discuss a site visit.`; window.open(`https://wa.me/919777543339?text=${encodeURIComponent(message)}`,"_blank","noopener,noreferrer"); }}><label>Your name<input name="name" autoComplete="name" placeholder="Full name" required maxLength={100}/></label><div className="form-row"><label>Phone number<input name="phone" autoComplete="tel" type="tel" placeholder="Your phone number" pattern="[+0-9 ()\-]{7,20}" required/></label><label>Email address<input name="email" autoComplete="email" type="email" placeholder="Email (optional)"/></label></div><label>Interested in<select name="residence" defaultValue="3 BHK"><option>2.5 BHK</option><option>3 BHK</option><option>Help me choose</option></select></label><label className="consent"><input type="checkbox" required/>I agree to be contacted by Acrux Realcon about my enquiry.</label><button className="solid-button" type="submit">Continue on WhatsApp <ArrowUpRight size={18}/></button><p className="form-note">Opens WhatsApp with your enquiry. Send the message there to connect with our team.</p></form></section>
- <footer className="site-footer"><div className="footer-top"><a href="#top" className="footer-brand"><Image src="/assets/Aakaar Logo.webp" alt="Acrux Aakaar" width={170} height={70}/></a><p>A considered way of living.<br/>By Acrux Realcon.</p><a href="#top" className="back-top">Back to top <ArrowUpRight size={19}/></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Acrux Realcon. All rights reserved.</span><span>All renders are artist’s impressions. Details subject to confirmation.</span></div></footer>
+ <section id="location" className="section location">
+    <div className="section-heading">
+      <span className="eyebrow">05 / CONNECTED TO YOUR WORLD</span>
+      <h2>The city at your doorstep.<br/><em>Calm at your heart.</em></h2>
+    </div>
+    <div className="location-layout">
+      {/* Left Side: Interactive Google Map */}
+      <div className="location-map-container">
+        <div className="location-map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36827.611162170164!2d85.81957025870696!3d20.332625705710612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190a2400000015%3A0xbd05b0fd3686dceb!2sPlot%20for%20sale%20in%20Bhubaneswar!5e1!3m2!1sen!2sin!4v1790923004554!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Acrux Aakaar Location Map - Patia, Bhubaneswar"
+            className="location-iframe"
+          />
+        </div>
+        <div className="location-card-footer">
+          <div className="location-card-info">
+            <div className="location-card-pin">
+              <MapPin size={18} />
+            </div>
+            <div>
+              <h3>Patia, Bhubaneswar</h3>
+              <p>Plot No. 15W, Chandrasekharpur, Patia, Bhubaneswar, Odisha 751021</p>
+            </div>
+          </div>
+          <a
+            className="location-gmaps-link"
+            href="https://www.google.com/maps/search/?api=1&query=Acrux+Aakaar+Patia+Bhubaneswar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Open in Maps</span>
+            <ArrowUpRight size={15} />
+          </a>
+        </div>
+      </div>
+
+      {/* Right Side: Everyday Connections */}
+      <div className="nearby">
+        <p className="eyebrow">EVERYDAY CONNECTIONS</p>
+        {[
+          ["01", "Education", "KIIT University · SAI International School"],
+          ["02", "Work", "Infocity · TCS · Infosys"],
+          ["03", "Healthcare", "KIMS · Care Hospitals"],
+          ["04", "Connectivity", "Patia railway station · Nandankanan Road"]
+        ].map(([num, title, text]) => (
+          <div key={num}>
+            <span>{num}</span>
+            <div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+            <ArrowUpRight size={18} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+ <section id="enquire" className="section enquiry"><div><span className="eyebrow">LET’S START A CONVERSATION</span><h2>Your next chapter<br/><em>begins here.</em></h2><p>Discover Aakaar in person. Connect with our team for residence details or to arrange your visit.</p><a href="tel:+919777543339" className="contact-phone">+91 97775 43339 <ArrowUpRight size={20}/></a><a href="mailto:sales@acruxrealcon.in">sales@acruxrealcon.in</a></div><form onSubmit={handleInlineEnquirySubmit}><label>Your name<input name="name" autoComplete="name" placeholder="Full name" required maxLength={100}/></label><div className="form-row"><label>Phone number<input name="phone" autoComplete="tel" type="tel" placeholder="Your phone number" pattern="[+0-9 ()\-]{7,20}" required/></label><label>Email address<input name="email" autoComplete="email" type="email" placeholder="Email (optional)"/></label></div><label>Interested in<select name="residence" defaultValue="3 BHK"><option>2.5 BHK</option><option>3 BHK</option><option>Help me choose</option></select></label><label className="consent"><input type="checkbox" required/>I agree to be contacted by Acrux Realcon about my enquiry.</label><button className="solid-button" type="submit">Continue on WhatsApp <ArrowUpRight size={18}/></button><p className="form-note">Opens WhatsApp with your enquiry. Send the message there to connect with our team.</p></form></section>
+   {/* About the Developer Section */}
+  <section id="developer" className="section developer-section">
+    <div className="developer-layout">
+      {/* Left: Atmospheric Architectural Portrait */}
+      <div className="developer-visual">
+        <div className="developer-image-frame">
+          <Image
+            src="/assets/Project/Architects_Image_07.webp"
+            alt="Ar. Ramesh Swain and Ar. Rahul Swain — Leaders of Acrux Realcon"
+            width={1600}
+            height={1018}
+            className="developer-portrait-img"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority={false}
+          />
+        </div>
+        <p className="developer-image-caption">
+          Ar. Ramesh Swain, Managing Director &amp; Ar. Rahul Swain, Director
+        </p>
+      </div>
+
+      {/* Right: Stately Editorial Narrative & Leadership */}
+      <div className="developer-content">
+        <span className="eyebrow">ABOUT THE DEVELOPER</span>
+        <h2 className="developer-title">
+          Spaces built with purpose.<br />
+          <em>Places made for life.</em>
+        </h2>
+        <div className="developer-gold-line" aria-hidden="true" />
+        <p className="developer-narrative">
+          Led by Ar. Ramesh Swain, Managing Director, and Ar. Rahul Swain, Director, Acrux Realcon brings together design-led thinking, quality, and a deep understanding of Odisha. Their experience across residential and commercial developments shapes the vision of CODENAME THE ARCH, creating places people are proud to call their own.
+        </p>
+
+        {/* Minimalist Architectural Signature Row */}
+        <div className="developer-byline-grid">
+          <div className="developer-byline-item">
+            <span className="byline-role">MANAGING DIRECTOR</span>
+            <h3 className="byline-name">Ar. Ramesh Swain</h3>
+          </div>
+          <div className="developer-byline-divider" aria-hidden="true" />
+          <div className="developer-byline-item">
+            <span className="byline-role">DIRECTOR</span>
+            <h3 className="byline-name">Ar. Rahul Swain</h3>
+          </div>
+        </div>
+
+        <p className="developer-heritage-note">
+          ACRUX REALCON · ARCHITECTURAL EXCELLENCE · BHUBANESWAR, ODISHA
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer className="site-footer"><div className="footer-top"><a href="#top" className="footer-brand"><Image src="/assets/Aakaar Logo.webp" alt="Acrux Aakaar" width={170} height={70}/></a><p>A considered way of living.<br/>By Acrux Realcon.</p><a href="#top" className="back-top">Back to top <ArrowUpRight size={19}/></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Acrux Realcon. All rights reserved.</span><span>All renders are artist’s impressions. Details subject to confirmation.</span></div></footer>
  <div className="mobile-cta"><a href="tel:+919777543339"><Phone size={16}/> Call us</a><a href="#enquire" onClick={openEnquiryModal}>Schedule a visit <ArrowUpRight size={16}/></a></div>
  {lightbox && (
    <div
@@ -432,31 +1089,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <form
-                className="enquiry-modal-form"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const data = new FormData(e.currentTarget);
-                  const name = data.get("name");
-                  const phone = data.get("phone");
-                  const email = data.get("email");
-                  const timeSlot = data.get("timeSlot");
-
-                  let message = "Hello Acrux Realcon Sales Team, I would like to request a private preview of Acrux Aakaar (Patia, Bhubaneswar).\n\n";
-                  message += "*Name:* " + name + "\n";
-                  message += "*Contact:* " + phone + "\n";
-                  if (email) message += "*Email:* " + email + "\n";
-                  message += "*Configuration Interest:* " + modalResidence + "\n";
-                  if (timeSlot) message += "*Preferred Preview Timing:* " + timeSlot + "\n";
-
-                  window.open(
-                    "https://wa.me/919777543339?text=" + encodeURIComponent(message),
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
-                  setEnquirySubmitted(true);
-                }}
-              >
+              <form className="enquiry-modal-form" onSubmit={handleConciergeModalSubmit}>
                 <div className="modal-input-group">
                   <label htmlFor="modal-name">Your Full Name *</label>
                   <input
@@ -545,6 +1178,111 @@ export default function Home() {
               </form>
             </div>
           )}
+        </div>
+      </div>
+    </div>
+  )}
+  {planFullscreen && (
+    <div
+      className="master-plan-modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Fullscreen Master Plan Explorer"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) setPlanFullscreen(false);
+      }}
+    >
+      <div className="master-plan-modal-dialog">
+        <div className="modal-header-bar">
+          <div className="modal-header-title">
+            <Compass size={15} />
+            <span>ACRUX AAKAAR — MASTER PLAN EXPLORER</span>
+          </div>
+          <button
+            type="button"
+            className="modal-close-trigger"
+            onClick={() => setPlanFullscreen(false)}
+            aria-label="Close fullscreen explorer"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="modal-stage-wrapper">
+          <div className="modal-map-stage">
+            <Image
+              src={project + "Master_Plan.webp"}
+              alt="Acrux Aakaar Fullscreen Master Plan"
+              fill
+              className="modal-full-img"
+              sizes="95vw"
+              priority
+            />
+
+            {masterPlanHotspots.map((spot) => {
+              const isActive = activeSpotId === spot.id;
+              const isDimmed = activeSpotId !== null && !isActive;
+
+              return (
+                <div
+                  key={spot.id}
+                  className={`master-marker-node ${isActive ? "is-active" : ""} ${isDimmed ? "is-dimmed" : ""}`}
+                  style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                >
+                  <button
+                    type="button"
+                    className="master-marker-circle"
+                    onMouseEnter={() => setHoveredHotspot(spot.id)}
+                    onMouseLeave={() => setHoveredHotspot(null)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedHotspot(selectedHotspot === spot.id ? null : spot.id);
+                    }}
+                    aria-label={`${spot.num}: ${spot.name}`}
+                  >
+                    <span className="marker-ping" aria-hidden="true" />
+                    <span className="marker-num-text">{spot.num}</span>
+                  </button>
+
+                  {isActive && (
+                    <div className="marker-float-tooltip pos-top pos-center" role="tooltip">
+                      <div className="marker-tooltip-header">
+                        <span className="marker-tooltip-num">{spot.num}</span>
+                        <span className="marker-tooltip-type">{spot.type}</span>
+                      </div>
+                      <h4 className="marker-tooltip-title">{spot.name}</h4>
+                      <span className="marker-tooltip-tag">{spot.tag}</span>
+                      <p className="marker-tooltip-desc">{spot.desc}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <aside className="master-plan-floating-legend modal-floating-legend" aria-label="Fullscreen Landmark Index">
+              <div className="floating-legend-header">
+                <span className="floating-legend-eyebrow">MASTER PLAN</span>
+                <p className="floating-legend-subtitle">EXPLORE THE DEVELOPMENT</p>
+              </div>
+              <div className="floating-legend-list">
+                {masterPlanHotspots.map((spot) => (
+                  <button
+                    key={spot.id}
+                    type="button"
+                    className={`floating-legend-item ${activeSpotId === spot.id ? "is-active" : ""}`}
+                    onMouseEnter={() => setHoveredHotspot(spot.id)}
+                    onMouseLeave={() => setHoveredHotspot(null)}
+                    onClick={() => setSelectedHotspot(selectedHotspot === spot.id ? null : spot.id)}
+                  >
+                    <span className="fl-num">{spot.num}</span>
+                    <span className="fl-line" />
+                    <span className="fl-name">{spot.name}</span>
+                    <span className="fl-tag">{spot.tag}</span>
+                  </button>
+                ))}
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
     </div>

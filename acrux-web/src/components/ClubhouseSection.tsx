@@ -58,17 +58,17 @@ export default function ClubhouseSection() {
   const current = clubSpaces[activeTab];
 
   return (
-    <section id="clubhouse" className="py-24 lg:py-32 bg-[#FAF8F5] relative overflow-hidden border-t border-[#b38b36]/20">
+    <section id="clubhouse" className="py-24 lg:py-32 bg-[#F7F5F0] relative overflow-hidden border-t border-[#976932]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="space-y-4 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-bold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-bold">
               Private Members&apos; Realm
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif text-neutral-900 font-light tracking-tight leading-tight">
               The G+3 Clubhouse —{" "}
-              <span className="italic font-normal text-[#b38b36]">
+              <span className="italic font-normal text-[#976932]">
                 A World Within
               </span>
             </h2>
@@ -77,7 +77,7 @@ export default function ClubhouseSection() {
             </p>
           </div>
 
-          <span className="text-xs uppercase tracking-widest text-[#b38b36] font-mono font-bold hidden md:block">
+          <span className="text-xs uppercase tracking-widest text-[#976932] font-mono font-bold hidden md:block">
             G+3 Dedicated Levels
           </span>
         </div>
@@ -110,7 +110,7 @@ export default function ClubhouseSection() {
               {/* Caption Overlay */}
               <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div className="space-y-1 text-white">
-                  <span className="text-[10px] uppercase tracking-widest text-[#f5e3b5] font-bold">
+                  <span className="text-[10px] uppercase tracking-widest text-[#976932] font-bold">
                     {current.badge}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-serif text-white">{current.title}</h3>
@@ -137,20 +137,20 @@ export default function ClubhouseSection() {
                   onClick={() => setActiveTab(idx)}
                   className={`w-full text-left p-4 rounded-xl border transition-all flex items-start gap-4 ${
                     isActive
-                      ? "border-[#b38b36] bg-white shadow-md ring-1 ring-[#b38b36]/20"
+                      ? "border-[#976932] bg-white shadow-md ring-1 ring-[#976932]/20"
                       : "border-neutral-200/80 bg-white/70 hover:border-neutral-300 hover:bg-white"
                   }`}
                 >
                   <div
                     className={`p-2.5 rounded-lg shrink-0 ${
-                      isActive ? "bg-[#b38b36] text-white shadow-sm" : "bg-neutral-100 text-neutral-600"
+                      isActive ? "bg-[#976932] text-white shadow-sm" : "bg-neutral-100 text-neutral-600"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase tracking-widest text-[#b38b36] font-bold">
+                      <span className="text-[10px] uppercase tracking-widest text-[#976932] font-bold">
                         {space.badge}
                       </span>
                       <span className="text-[10px] text-neutral-400 font-mono font-bold">0{idx + 1}</span>

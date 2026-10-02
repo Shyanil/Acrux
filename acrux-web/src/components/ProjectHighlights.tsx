@@ -69,7 +69,7 @@ export default function ProjectHighlights() {
   return (
     <section id="overview" className="py-24 bg-[#0B0F16] relative overflow-hidden">
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#c5a059]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#976932]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -81,7 +81,7 @@ export default function ProjectHighlights() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto space-y-4 mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#c5a059]/10 border border-[#c5a059]/30 text-xs font-semibold uppercase tracking-widest text-[#d4af37]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#976932]/10 border border-[#976932]/30 text-xs font-semibold uppercase tracking-widest text-[#d4af37]">
             Project Overview
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white leading-tight">
@@ -106,15 +106,15 @@ export default function ProjectHighlights() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="group p-7 rounded-2xl bg-gradient-to-b from-[#131924] to-[#0d121b] border border-slate-800/80 hover:border-[#c5a059]/60 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-[#c5a059]/10 cursor-default"
+                className="group p-7 rounded-2xl bg-gradient-to-b from-[#131924] to-[#0d121b] border border-slate-800/80 hover:border-[#976932]/60 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-[#976932]/10 cursor-default"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#c5a059]/10 border border-[#c5a059]/20 flex items-center justify-center text-[#d4af37] mb-5 group-hover:scale-110 group-hover:bg-[#c5a059]/20 transition-all">
+                <div className="w-12 h-12 rounded-xl bg-[#976932]/10 border border-[#976932]/20 flex items-center justify-center text-[#d4af37] mb-5 group-hover:scale-110 group-hover:bg-[#976932]/20 transition-all">
                   <Icon className="w-6 h-6" />
                 </div>
                 <div className="text-3xl font-serif font-bold text-white mb-1 group-hover:text-gold-gradient transition-colors">
                   {item.number}
                 </div>
-                <div className="text-xs uppercase tracking-wider font-semibold text-[#f5e3b5] mb-2">
+                <div className="text-xs uppercase tracking-wider font-semibold text-[#976932] mb-2">
                   {item.label}
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed font-light">{item.desc}</p>
@@ -152,7 +152,7 @@ export default function ProjectHighlights() {
                 const FeatIcon = feat.icon;
                 return (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-[#c5a059]/10 text-[#d4af37] shrink-0 mt-0.5">
+                    <div className="p-2 rounded-lg bg-[#976932]/10 text-[#d4af37] shrink-0 mt-0.5">
                       <FeatIcon className="w-4 h-4" />
                     </div>
                     <div>
@@ -169,7 +169,7 @@ export default function ProjectHighlights() {
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative h-80 sm:h-96 rounded-2xl overflow-hidden border border-[#c5a059]/30 shadow-2xl group">
+          <div className="lg:col-span-6 relative h-80 sm:h-96 rounded-2xl overflow-hidden border border-[#976932]/30 shadow-2xl group">
             <Image
               src="/assets/Project/Plaza_Blocks_AB.webp"
               alt="Acrux Aakaar Block Plaza"

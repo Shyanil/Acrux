@@ -9,7 +9,7 @@ export default function ProjectIntro() {
   return (
     <section id="overview" className="py-24 lg:py-32 bg-white relative overflow-hidden">
       {/* Subtle Warm Ambience */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#f7f2e7] rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#F7F5F0] rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -22,15 +22,15 @@ export default function ProjectIntro() {
             className="lg:col-span-6 space-y-8"
           >
             {/* Small Label in White & Gold */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-[#b38b36]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-[#976932]" />
               <span>The Project Statement</span>
             </div>
 
             {/* Large Editorial Headline */}
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-neutral-900 font-light leading-[1.12] tracking-tight">
               Designed for a life that feels{" "}
-              <span className="italic font-normal text-[#b38b36]">
+              <span className="italic font-normal text-[#976932]">
                 transcendent.
               </span>
             </h2>
@@ -45,7 +45,7 @@ export default function ProjectIntro() {
             {/* Key Editorial Facets */}
             <div className="grid grid-cols-2 gap-6 pt-4 border-t border-neutral-200">
               <div className="space-y-1">
-                <span className="text-3xl font-serif text-[#b38b36] font-normal">556</span>
+                <span className="text-3xl font-serif text-[#976932] font-normal">556</span>
                 <p className="text-xs uppercase tracking-widest text-neutral-800 font-semibold">
                   Exclusive Residences
                 </p>
@@ -53,7 +53,7 @@ export default function ProjectIntro() {
               </div>
 
               <div className="space-y-1">
-                <span className="text-3xl font-serif text-[#b38b36] font-normal">60%</span>
+                <span className="text-3xl font-serif text-[#976932] font-normal">60%</span>
                 <p className="text-xs uppercase tracking-widest text-neutral-800 font-semibold">
                   Open Greens
                 </p>
@@ -64,7 +64,7 @@ export default function ProjectIntro() {
             <div className="pt-2">
               <a
                 href="#architecture"
-                className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#b38b36] hover:text-[#8c6b25] group font-semibold"
+                className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#976932] hover:text-[#7a5426] group font-semibold"
               >
                 <span>Discover The Architectural Philosophy</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -97,7 +97,7 @@ export default function ProjectIntro() {
               {/* Floating Architectural Badge */}
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#f5e3b5] block font-bold">
+                  <span className="text-[10px] uppercase tracking-widest text-[#976932] block font-bold">
                     The Grand Arrival Gate
                   </span>
                   <p className="text-sm font-light text-white mt-0.5">

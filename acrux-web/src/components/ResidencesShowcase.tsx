@@ -71,12 +71,12 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="space-y-4 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f7f2e7] border border-[#b38b36]/30 text-[#b38b36] text-xs uppercase tracking-[0.25em] font-semibold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F5F0] border border-[#976932]/30 text-[#976932] text-xs uppercase tracking-[0.25em] font-semibold">
               Curated Living Spaces
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif text-neutral-900 font-light tracking-tight leading-tight">
               Sun-Kissed Homes,{" "}
-              <span className="italic font-normal text-[#b38b36]">
+              <span className="italic font-normal text-[#976932]">
                 Perfected Living
               </span>
             </h2>
@@ -93,7 +93,7 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
                 onClick={() => setActiveUnit(idx)}
                 className={`px-5 sm:px-7 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold transition-all ${
                   activeUnit === idx
-                    ? "bg-[#b38b36] text-white shadow-md"
+                    ? "bg-[#976932] text-white shadow-md"
                     : "text-neutral-600 hover:text-neutral-900"
                 }`}
               >
@@ -131,7 +131,7 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
               {/* Caption Overlay */}
               <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div className="space-y-1 text-white">
-                  <span className="text-[10px] uppercase tracking-widest text-[#f5e3b5] font-bold">
+                  <span className="text-[10px] uppercase tracking-widest text-[#976932] font-bold">
                     Interior Perspective
                   </span>
                   <h3 className="text-xl sm:text-2xl font-serif text-white">{selectedRoom.title}</h3>
@@ -154,11 +154,11 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
                   onClick={() => setActiveRoom(idx)}
                   className={`text-left p-3 rounded-xl border transition-all ${
                     activeRoom === idx
-                      ? "border-[#b38b36] bg-[#f7f2e7] shadow-xs"
+                      ? "border-[#976932] bg-[#F7F5F0] shadow-xs"
                       : "border-neutral-200 bg-white hover:border-neutral-300 text-neutral-600"
                   }`}
                 >
-                  <span className="text-[10px] text-[#b38b36] block font-mono font-bold">0{idx + 1}</span>
+                  <span className="text-[10px] text-[#976932] block font-mono font-bold">0{idx + 1}</span>
                   <p className={`text-xs font-medium truncate ${activeRoom === idx ? "text-neutral-900 font-semibold" : "text-neutral-700"}`}>
                     {room.title}
                   </p>
@@ -169,15 +169,15 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
 
           {/* Unit Specs & Editorial Card */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="p-8 rounded-2xl bg-[#FBF9F5] border border-[#b38b36]/20 shadow-md space-y-6">
+            <div className="p-8 rounded-2xl bg-[#FBF9F5] border border-[#976932]/20 shadow-md space-y-6">
               <div>
-                <span className="text-xs uppercase tracking-[0.25em] text-[#b38b36] font-bold block">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#976932] font-bold block">
                   Configuration Details
                 </span>
                 <h3 className="text-2xl font-serif text-neutral-900 mt-1">
                   {selectedUnit.title}
                 </h3>
-                <div className="text-3xl font-serif text-[#b38b36] font-medium mt-2">
+                <div className="text-3xl font-serif text-[#976932] font-medium mt-2">
                   {selectedUnit.size}
                 </div>
               </div>
@@ -190,28 +190,28 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
               <div className="space-y-3 pt-2 border-t border-neutral-200">
                 <div className="flex items-center justify-between text-xs py-2 border-b border-neutral-200/60">
                   <span className="text-neutral-600 flex items-center gap-2">
-                    <BedDouble className="w-4 h-4 text-[#b38b36]" /> Bedroom Layout
+                    <BedDouble className="w-4 h-4 text-[#976932]" /> Bedroom Layout
                   </span>
                   <span className="text-neutral-900 font-semibold">{selectedUnit.bedrooms}</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs py-2 border-b border-neutral-200/60">
                   <span className="text-neutral-600 flex items-center gap-2">
-                    <Bath className="w-4 h-4 text-[#b38b36]" /> Bathrooms
+                    <Bath className="w-4 h-4 text-[#976932]" /> Bathrooms
                   </span>
                   <span className="text-neutral-900 font-semibold">{selectedUnit.bathrooms}</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs py-2 border-b border-neutral-200/60">
                   <span className="text-neutral-600 flex items-center gap-2">
-                    <Maximize2 className="w-4 h-4 text-[#b38b36]" /> Outdoor Living
+                    <Maximize2 className="w-4 h-4 text-[#976932]" /> Outdoor Living
                   </span>
                   <span className="text-neutral-900 font-semibold">{selectedUnit.balconies}</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs py-2">
                   <span className="text-neutral-600 flex items-center gap-2">
-                    <Compass className="w-4 h-4 text-[#b38b36]" /> Orientation
+                    <Compass className="w-4 h-4 text-[#976932]" /> Orientation
                   </span>
                   <span className="text-neutral-900 font-semibold">100% Vastu Compliant</span>
                 </div>
@@ -221,7 +221,7 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
               <div className="space-y-3 pt-2">
                 <button
                   onClick={onOpenEnquiry}
-                  className="w-full py-3.5 rounded-full bg-[#b38b36] hover:bg-[#987532] text-white text-xs font-semibold uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-full bg-[#976932] hover:bg-[#102038] text-white text-xs font-semibold uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Request Detailed Floor Plan</span>
@@ -231,7 +231,7 @@ export default function ResidencesShowcase({ onOpenBrochure, onOpenEnquiry }: Re
                   onClick={onOpenBrochure}
                   className="w-full py-3 rounded-full bg-white hover:bg-neutral-50 border border-neutral-300 text-neutral-900 text-xs font-semibold uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-2xs"
                 >
-                  <Download className="w-3.5 h-3.5 text-[#b38b36]" />
+                  <Download className="w-3.5 h-3.5 text-[#976932]" />
                   <span>Download Project Brochure</span>
                 </button>
               </div>

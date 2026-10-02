@@ -12,12 +12,12 @@ export default function FeatureShowcase() {
         <div className="space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-3 max-w-2xl">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#b38b36] font-bold block">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#976932] font-bold block">
                 01 / Architectural Majesty
               </span>
               <h2 className="text-3xl sm:text-5xl font-serif text-neutral-900 font-light leading-tight">
                 Architecture in Grand{" "}
-                <span className="italic font-normal text-[#b38b36]">Proportion</span>
+                <span className="italic font-normal text-[#976932]">Proportion</span>
               </h2>
             </div>
             <p className="text-neutral-600 text-sm max-w-md font-light leading-relaxed">
@@ -61,7 +61,7 @@ export default function FeatureShowcase() {
       </div>
 
       {/* Spread 2: Sanctuary of Nature & Water (Asymmetric 2-Image Spread on Soft Cream) */}
-      <div className="py-20 bg-[#FAF8F5] border-y border-[#b38b36]/20">
+      <div className="py-20 bg-[#F7F5F0] border-y border-[#976932]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Visual Pair */}
@@ -82,7 +82,7 @@ export default function FeatureShowcase() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-white text-xs">
-                  <span className="text-[#f5e3b5] font-bold uppercase tracking-wider block text-[10px]">
+                  <span className="text-[#976932] font-bold uppercase tracking-wider block text-[10px]">
                     Central Great Lawn
                   </span>
                   <p className="text-neutral-200 text-[11px] font-light mt-0.5">
@@ -101,7 +101,7 @@ export default function FeatureShowcase() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-white text-xs">
-                  <span className="text-[#f5e3b5] font-bold uppercase tracking-wider block text-[10px]">
+                  <span className="text-[#976932] font-bold uppercase tracking-wider block text-[10px]">
                     Cascading Zen Pond
                   </span>
                   <p className="text-neutral-200 text-[11px] font-light mt-0.5">
@@ -119,12 +119,12 @@ export default function FeatureShowcase() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 space-y-6 lg:pl-6"
             >
-              <span className="text-xs uppercase tracking-[0.25em] text-[#b38b36] font-bold block">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#976932] font-bold block">
                 02 / Landscape Sanctuary
               </span>
               <h2 className="text-3xl sm:text-5xl font-serif text-neutral-900 font-light leading-tight">
                 60% Open Greens &{" "}
-                <span className="italic font-normal text-[#b38b36]">
+                <span className="italic font-normal text-[#976932]">
                   Serene Waters
                 </span>
               </h2>
@@ -134,15 +134,15 @@ export default function FeatureShowcase() {
 
               <div className="space-y-3 pt-2">
                 <div className="flex items-center gap-3 text-xs text-neutral-700 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#b38b36]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#976932]" />
                   <span>Central sunlit amphitheatre lawn</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-neutral-700 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#b38b36]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#976932]" />
                   <span>Tranquil koi pond with cascading stone fountain</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-neutral-700 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#b38b36]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#976932]" />
                   <span>Dedicated senior citizen reflexology paths</span>
                 </div>
               </div>
@@ -162,19 +162,19 @@ export default function FeatureShowcase() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 space-y-6 order-2 lg:order-1"
           >
-            <span className="text-xs uppercase tracking-[0.25em] text-[#b38b36] font-bold block">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#976932] font-bold block">
               03 / Rooftop Leisure
             </span>
             <h2 className="text-3xl sm:text-5xl font-serif text-neutral-900 font-light leading-tight">
               Where Evenings Touch{" "}
-              <span className="italic font-normal text-[#b38b36]">The Sky</span>
+              <span className="italic font-normal text-[#976932]">The Sky</span>
             </h2>
             <p className="text-neutral-600 text-sm sm:text-base font-light leading-relaxed">
               Perched twenty-one storeys above the city, the exclusive rooftop sky lounge and stargazing pergola cabanas provide an elevated realm for private conversations, sunset contemplation, and twilight celebrations.
             </p>
 
-            <div className="p-5 rounded-2xl bg-[#FBF9F5] border border-[#b38b36]/25 space-y-1">
-              <div className="text-xs uppercase tracking-widest text-[#b38b36] font-bold">
+            <div className="p-5 rounded-2xl bg-[#FBF9F5] border border-[#976932]/25 space-y-1">
+              <div className="text-xs uppercase tracking-widest text-[#976932] font-bold">
                 Skyline Elevation
               </div>
               <p className="text-xs text-neutral-600 font-light leading-relaxed">
@@ -201,7 +201,7 @@ export default function FeatureShowcase() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4 right-4 text-white text-xs">
-                <span className="text-[#f5e3b5] font-bold uppercase tracking-wider block text-[10px]">
+                <span className="text-[#976932] font-bold uppercase tracking-wider block text-[10px]">
                   Rooftop Sky Lounge
                 </span>
                 <p className="text-neutral-200 text-[11px] font-light mt-0.5">
@@ -220,7 +220,7 @@ export default function FeatureShowcase() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4 right-4 text-white text-xs">
-                <span className="text-[#f5e3b5] font-bold uppercase tracking-wider block text-[10px]">
+                <span className="text-[#976932] font-bold uppercase tracking-wider block text-[10px]">
                   Stargazing Pergola
                 </span>
                 <p className="text-neutral-200 text-[11px] font-light mt-0.5">
