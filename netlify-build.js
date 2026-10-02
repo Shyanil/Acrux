@@ -26,6 +26,18 @@ if (isRoot && fs.existsSync(buildDir)) {
     fs.mkdirSync(rootBuildDir, { recursive: true });
   }
   fs.cpSync(buildDir, rootBuildDir, { recursive: true });
+
+  // Ensure /admin/index.html exists alongside /admin.html for maximum compatibility
+  const adminHtml = path.join(rootBuildDir, 'admin.html');
+  const adminSubDir = path.join(rootBuildDir, 'admin');
+  const adminIndex = path.join(adminSubDir, 'index.html');
+  if (fs.existsSync(adminHtml)) {
+    if (!fs.existsSync(adminSubDir)) {
+      fs.mkdirSync(adminSubDir, { recursive: true });
+    }
+    fs.copyFileSync(adminHtml, adminIndex);
+    console.log('Generated admin/index.html fallback.');
+  }
 }
 
 console.log('=== Netlify Build Completed Successfully ===');

@@ -3,6 +3,7 @@ import WaterCursor from "@/components/WaterCursor";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Compass, Download, Maximize2, Menu, X, MapPin, Phone, Plus, Sparkles } from "lucide-react";
+import { submitLeadClient } from "@/lib/leads-client";
 const project = "/assets/Project/";
 const gallery = [["Entrance_Dusk.webp", "An arrival to remember"], ["Master_Elevation.webp", "A new perspective on the city"], ["Rooftop_Sky_Lounge.webp", "Evenings above the everyday"], ["Zen_Pond.webp", "A moment of stillness"]];
 const heroSlides = [
@@ -308,17 +309,13 @@ export default function Home() {
 
     // Persist lead to database with UTM source tracking
     try {
-      fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          residence,
-          sourceForm: "inline_enquiry",
-          ...utm,
-        }),
+      submitLeadClient({
+        name,
+        phone,
+        email,
+        residence,
+        sourceForm: "inline_enquiry",
+        ...utm,
       });
     } catch (err) {
       console.error("Lead submission error:", err);
@@ -339,18 +336,14 @@ export default function Home() {
 
     // Persist lead to database with UTM source tracking
     try {
-      fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          residence: modalResidence,
-          timeSlot,
-          sourceForm: "concierge_modal",
-          ...utm,
-        }),
+      submitLeadClient({
+        name,
+        phone,
+        email,
+        residence: modalResidence,
+        timeSlot,
+        sourceForm: "concierge_modal",
+        ...utm,
       });
     } catch (err) {
       console.error("Lead submission error:", err);

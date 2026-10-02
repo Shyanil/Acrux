@@ -27,6 +27,12 @@ import {
 } from "lucide-react";
 import "./admin.css";
 import { Lead, LeadStats, LeadStatus } from "@/types/leads";
+import {
+  fetchLeadsClient,
+  updateLeadStatusClient,
+  deleteLeadClient,
+  downloadLeadsCsvClient,
+} from "@/lib/leads-client";
 
 const DEFAULT_ADMIN_EMAIL = "admin@acruxrealcon.in";
 const DEFAULT_ADMIN_PASS = "acrux2026";
@@ -68,13 +74,10 @@ export default function AdminPortalPage() {
   const fetchLeads = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("/api/leads");
-      const data = await res.json();
-      if (data.success) {
-        setLeads(data.leads || []);
-        setStats(data.stats || null);
-        setIsSupabaseConnected(Boolean(data.isSupabaseConnected));
-      }
+      const data = await fetchLeadsClient();
+      setLeads(data.leads || []);
+      setStats(data.stats || null);
+      setIsSupabaseConnected(Boolean(data.isSupabaseConnected));
     } catch (err) {
       console.error("Failed to load leads:", err);
     } finally {
@@ -111,13 +114,8 @@ export default function AdminPortalPage() {
   // Status Change
   const handleStatusChange = async (id: string, newStatus: LeadStatus) => {
     try {
-      const res = await fetch("/api/leads", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, status: newStatus }),
-      });
-      const data = await res.json();
-      if (data.success) {
+      const res = await updateLeadStatusClient(id, { status: newStatus });
+      if (res.success) {
         setLeads((prev) =>
           prev.map((l) => (l.id === id ? { ...l, status: newStatus } : l))
         );
@@ -135,13 +133,8 @@ export default function AdminPortalPage() {
     if (!selectedLead) return;
     setIsSavingNote(true);
     try {
-      const res = await fetch("/api/leads", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: selectedLead.id, notes: leadNoteInput }),
-      });
-      const data = await res.json();
-      if (data.success) {
+      const res = await updateLeadStatusClient(selectedLead.id, { notes: leadNoteInput });
+      if (res.success) {
         setLeads((prev) =>
           prev.map((l) => (l.id === selectedLead.id ? { ...l, notes: leadNoteInput } : l))
         );
@@ -158,9 +151,8 @@ export default function AdminPortalPage() {
   const handleDeleteLead = async (id: string, name: string) => {
     if (!window.confirm(`Are you sure you want to delete lead: ${name}?`)) return;
     try {
-      const res = await fetch(`/api/leads?id=${id}`, { method: "DELETE" });
-      const data = await res.json();
-      if (data.success) {
+      const res = await deleteLeadClient(id);
+      if (res.success) {
         setLeads((prev) => prev.filter((l) => l.id !== id));
         if (selectedLead?.id === id) setSelectedLead(null);
       }
@@ -349,10 +341,15 @@ export default function AdminPortalPage() {
             </button>
 
             {/* CSV Download Button */}
-            <a href="/api/leads/export" download className="admin-btn-export">
+            <button
+              type="button"
+              onClick={() => downloadLeadsCsvClient(filteredLeads)}
+              className="admin-btn-export"
+              title="Download filtered leads as CSV file"
+            >
               <Download size={13} />
               <span>Download CSV</span>
-            </a>
+            </button>
 
             {/* Logout */}
             <button type="button" onClick={handleLogout} className="admin-btn-logout">
