@@ -991,13 +991,126 @@
   }
 }
 
-.architect { display: grid; grid-template-columns: .7fr 1.3fr; align-items: center; gap: 10%; border-bottom: 1px solid rgba(16, 32, 56, 0.1); background: var(--color-white); }
-.architect > .picture { height: 400px; }
-.architect .picture-image { object-position: top; }
-.architect h2 { color: var(--color-navy); }
-.architect p { max-width: 500px; color: var(--color-text); }
-.architect-name { display: block; font: 24px Georgia, serif; margin-top: 30px; color: var(--color-navy); }
-.architect-name small { display: block; font: 9px var(--font-gotham), sans-serif; letter-spacing: .15em; color: var(--color-gold); margin-top: 12px; }
+/* ==========================================================================
+   THE MIND BEHIND THE VISION (Architect Section) - Fully Responsive 
+   ========================================================================== */
+.architect {
+  display: grid !important;
+  grid-template-columns: 1.15fr 1fr !important;
+  align-items: center !important;
+  gap: 50px 6% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  border-bottom: 1px solid rgba(16, 32, 56, 0.1) !important;
+  background: var(--color-white) !important;
+  box-sizing: border-box !important;
+}
+
+.architect-visual {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.architect-visual .picture,
+.architect > .picture {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3300 / 2100 !important; /* Exact 1.5714:1 photo ratio so neither person is cut off */
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  box-shadow: 0 16px 44px rgba(16, 32, 56, 0.08) !important;
+  border: 1px solid rgba(16, 32, 56, 0.08) !important;
+  position: relative !important;
+}
+
+.architect .picture-image {
+  object-fit: cover !important;
+  object-position: center center !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.architect-visual .picture:hover .picture-image,
+.architect > .picture:hover .picture-image {
+  transform: scale(1.02) !important;
+}
+
+.architect-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  max-width: 600px !important;
+}
+
+.architect h2 {
+  color: var(--color-navy) !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(32px, 3.2vw, 48px) !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+}
+
+.architect h2 em {
+  color: var(--color-gold) !important;
+  font-style: italic !important;
+}
+
+.architect-gold-line {
+  width: 44px !important;
+  height: 1.5px !important;
+  background: var(--color-gold) !important;
+  margin: 18px 0 20px 0 !important;
+}
+
+.architect p {
+  max-width: 540px !important;
+  color: #333333 !important;
+  font-size: 15.5px !important;
+  line-height: 1.8 !important;
+  margin: 0 !important;
+}
+
+.architect-names-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+  margin-top: 28px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid rgba(16, 32, 56, 0.1) !important;
+  width: 100% !important;
+}
+
+.architect-name-item {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.architect-name {
+  display: block !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 21px !important;
+  font-weight: 600 !important;
+  color: var(--color-navy) !important;
+  line-height: 1.2 !important;
+}
+
+.architect-role {
+  display: block !important;
+  font-family: var(--font-gotham), sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  color: var(--color-gold) !important;
+  margin-top: 4px !important;
+  text-transform: uppercase !important;
+}
+
+.architect-name-divider {
+  width: 1px !important;
+  height: 36px !important;
+  background: rgba(16, 32, 56, 0.15) !important;
+}
 .location {
   background: var(--color-white);
 }
@@ -1237,9 +1350,9 @@ body:has(dialog[open]) { overflow: hidden; }
   .gallery-controls button { padding: 10px; }
   .gallery-image .picture { height: 350px; }
   .gallery-caption h3 { font-size: 22px; max-width: 75%; }
-  .architect { grid-template-columns: 1fr; gap: 35px; }
-  .architect > .picture { height: 360px; max-width: 350px; }
-  .architect p { font-size: 12px; }
+  .architect { grid-template-columns: 1fr !important; gap: 30px !important; }
+  .architect > .picture, .architect-visual .picture { width: 100% !important; max-width: 100% !important; height: auto !important; aspect-ratio: 3300 / 2100 !important; }
+  .architect p { font-size: 14.5px !important; }
   .location-layout { grid-template-columns: 1fr; gap: 32px; margin-top: 30px; }
   .location-map-frame { min-height: 320px; height: 320px; }
   .location-address { padding: 30px; }
@@ -3396,11 +3509,11 @@ body:has(dialog[open]) { overflow: hidden; }
 @media (max-width: 1024px) {
   .developer-layout {
     grid-template-columns: 1fr !important;
-    gap: 40px !important;
+    gap: 36px !important;
   }
   .developer-section {
-    padding-top: 75px !important;
-    padding-bottom: 75px !important;
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
   }
   .developer-narrative {
     max-width: 100% !important;
@@ -3410,16 +3523,80 @@ body:has(dialog[open]) { overflow: hidden; }
   }
 }
 
+@media (max-width: 768px) {
+  .developer-section {
+    padding-top: 55px !important;
+    padding-bottom: 55px !important;
+  }
+  .developer-layout {
+    gap: 28px !important;
+  }
+  .developer-title {
+    font-size: clamp(28px, 6.5vw, 38px) !important;
+    line-height: 1.18 !important;
+  }
+  .developer-narrative {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    margin-bottom: 24px !important;
+  }
+  .developer-image-caption {
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+    margin-top: 10px !important;
+    line-height: 1.5 !important;
+  }
+  .developer-heritage-note {
+    font-size: 8.5px !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.5 !important;
+    margin-top: 20px !important;
+  }
+}
+
 @media (max-width: 600px) {
+  .developer-section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  .developer-title {
+    font-size: clamp(26px, 7vw, 34px) !important;
+    line-height: 1.2 !important;
+  }
+  .developer-gold-line {
+    margin: 16px 0 18px 0 !important;
+  }
+  .developer-narrative {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
+  }
   .developer-byline-grid {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 18px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px 20px !important;
+    align-items: start !important;
+    padding: 18px 0 !important;
   }
   .developer-byline-divider {
     display: none !important;
   }
   .byline-name {
-    font-size: 19px !important;
+    font-size: 18px !important;
+  }
+  .byline-role {
+    font-size: 8.5px !important;
+    letter-spacing: 0.15em !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .developer-byline-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .developer-heritage-note {
+    font-size: 7.5px !important;
+    letter-spacing: 0.08em !important;
   }
 }

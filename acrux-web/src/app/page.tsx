@@ -825,7 +825,36 @@ export default function Home() {
     </div>
   </section>
 
- <section id="architect" className="architect section"><Picture src={`${project}Architect_Portrait.webp`} alt="Architect Ramesh Swain"/><div><span className="eyebrow">THE MIND BEHIND THE VISION</span><h2>Imagined with care.<br/><em>Designed for living.</em></h2><p>Architecture by Ar. Ramesh Swain, bringing natural light, open views and considered spaces into the way you live.</p><span className="architect-name">Ar. Ramesh Swain <small>PROJECT ARCHITECT</small></span></div></section>
+  <section id="architect" className="architect section">
+    <div className="architect-visual">
+      <Picture
+        src={`${project}Architect_Portrait.webp`}
+        alt="Ar. Ramesh Swain and Ar. Rahul Swain — Leaders of Acrux Realcon"
+      />
+    </div>
+    <div className="architect-content">
+      <span className="eyebrow">THE MIND BEHIND THE VISION</span>
+      <h2>
+        Imagined with care.<br />
+        <em>Designed for living.</em>
+      </h2>
+      <div className="architect-gold-line" aria-hidden="true" />
+      <p>
+        Architecture by Ar. Ramesh Swain and Ar. Rahul Swain, bringing natural light, open views and considered spaces into the way you live.
+      </p>
+      <div className="architect-names-row">
+        <div className="architect-name-item">
+          <span className="architect-name">Ar. Ramesh Swain</span>
+          <small className="architect-role">MANAGING DIRECTOR</small>
+        </div>
+        <div className="architect-name-divider" aria-hidden="true" />
+        <div className="architect-name-item">
+          <span className="architect-name">Ar. Rahul Swain</span>
+          <small className="architect-role">DIRECTOR</small>
+        </div>
+      </div>
+    </div>
+  </section>
  <section id="location" className="section location">
     <div className="section-heading">
       <span className="eyebrow">05 / CONNECTED TO YOUR WORLD</span>
