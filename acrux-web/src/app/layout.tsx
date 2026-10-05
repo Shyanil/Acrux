@@ -33,6 +33,11 @@ export const metadata: Metadata = {
     "2.5 BHK in Patia",
     "Bhubaneswar Real Estate",
   ],
+  icons: {
+    icon: [{ url: "/fav-icon.webp", type: "image/webp" }],
+    shortcut: "/fav-icon.webp",
+    apple: "/fav-icon.webp",
+  },
   openGraph: {
     title: "ACRUX AAKAAR | Ultra-Luxury 2.5 & 3 BHK Residences",
     description: "556 Apartments | 5 Towers | B+S+21 | 60% Open Space in Patia, Bhubaneswar.",

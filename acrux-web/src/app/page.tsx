@@ -1,6 +1,7 @@
 "use client";
 import WaterCursor from "@/components/WaterCursor";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Compass, Download, Maximize2, Menu, X, MapPin, Phone, Plus, Sparkles } from "lucide-react";
 import { submitLeadClient } from "@/lib/leads-client";
@@ -241,6 +242,7 @@ function StatCounter({
 }
 
 export default function Home() {
+ const router = useRouter();
  const [menuOpen, setMenuOpen] = useState(false);
  const [scrolled, setScrolled] = useState(false);
  const [unit, setUnit] = useState(1);
@@ -258,6 +260,8 @@ export default function Home() {
   const [planFullscreen, setPlanFullscreen] = useState(false);
   const [legendCollapsed, setLegendCollapsed] = useState(false);
   const [modalLegendCollapsed, setModalLegendCollapsed] = useState(false);
+  const [legendPage, setLegendPage] = useState(0);
+  const [modalLegendPage, setModalLegendPage] = useState(0);
   const activeSpotId = hoveredHotspot ?? selectedHotspot;
   const activeSpot = masterPlanHotspots.find((s) => s.id === activeSpotId);
 
@@ -309,7 +313,7 @@ export default function Home() {
 
     // Persist lead to database with UTM source tracking
     try {
-      submitLeadClient({
+      await submitLeadClient({
         name,
         phone,
         email,
@@ -321,8 +325,8 @@ export default function Home() {
       console.error("Lead submission error:", err);
     }
 
-    const message = `Hello, I am ${name}. I am interested in ${residence} at Acrux Aakaar. Please contact me at ${phone}${email ? ` or ${email}` : ""} to discuss a site visit.`;
-    window.open(`https://wa.me/919777543339?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    sessionStorage.setItem("acrux_brochure_access", "granted");
+    router.push("/thank-you");
   };
 
   const handleConciergeModalSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -336,7 +340,7 @@ export default function Home() {
 
     // Persist lead to database with UTM source tracking
     try {
-      submitLeadClient({
+      await submitLeadClient({
         name,
         phone,
         email,
@@ -349,19 +353,8 @@ export default function Home() {
       console.error("Lead submission error:", err);
     }
 
-    let message = "Hello Acrux Realcon Sales Team, I would like to request a private preview of Acrux Aakaar (Patia, Bhubaneswar).\n\n";
-    message += "*Name:* " + name + "\n";
-    message += "*Contact:* " + phone + "\n";
-    if (email) message += "*Email:* " + email + "\n";
-    message += "*Configuration Interest:* " + modalResidence + "\n";
-    if (timeSlot) message += "*Preferred Preview Timing:* " + timeSlot + "\n";
-
-    window.open(
-      "https://wa.me/919777543339?text=" + encodeURIComponent(message),
-      "_blank",
-      "noopener,noreferrer"
-    );
-    setEnquirySubmitted(true);
+    sessionStorage.setItem("acrux_brochure_access", "granted");
+    router.push("/thank-you");
   };
 
   const statsRef = useRef<HTMLDivElement>(null);
@@ -553,7 +546,7 @@ export default function Home() {
         <span className="stat-label">Open spaces</span>
       </div>
     </div></section>
-  <section id="residences" className="residences section"><div className="section-heading"><span className="eyebrow">02 / YOUR PRIVATE WORLD</span><h2>Space for everything.<br/><em>Especially you.</em></h2></div><div className="residence-layout"><Picture src="/assets/Interiors/Living_Dining_Room.webp" alt="Aakaar living and dining room opening onto a balcony"/><div className="residence-details"><p className="eyebrow">THE RESIDENCES</p><div className="unit-tabs" aria-label="Residence configuration">{["2.5 BHK","3 BHK"].map((label,i) => <button key={label} aria-pressed={unit===i} onClick={() => setUnit(i)}>{label}</button>)}</div><div aria-live="polite"><h3>{unit ? "A little more room to call your own." : "Your home. Your possibilities."}</h3><p>{unit ? "Three bedrooms, welcoming shared spaces and room for every part of your day." : "Two bedrooms and a versatile study for work, creativity or a quiet retreat."}</p><div className="residence-size"><strong>{unit ? "2,148" : "1,790"}</strong><span>sq. ft.</span></div></div><a href="/brochure.pdf" download className="text-link">Explore plans &amp; details <ArrowUpRight size={20}/></a></div></div></section>
+  <section id="residences" className="residences section"><div className="section-heading"><span className="eyebrow">02 / YOUR PRIVATE WORLD</span><h2>Space for everything.<br/><em>Especially you.</em></h2></div><div className="residence-layout"><Picture src="/assets/Interiors/Living_Dining_Room.webp" alt="Aakaar living and dining room opening onto a balcony"/><div className="residence-details"><p className="eyebrow">THE RESIDENCES</p><div className="unit-tabs" aria-label="Residence configuration">{["2.5 BHK","3 BHK"].map((label,i) => <button key={label} aria-pressed={unit===i} onClick={() => setUnit(i)}>{label}</button>)}</div><div aria-live="polite"><h3>{unit ? "A little more room to call your own." : "Your home. Your possibilities."}</h3><p>{unit ? "Three bedrooms, welcoming shared spaces and room for every part of your day." : "Two bedrooms and a versatile study for work, creativity or a quiet retreat."}</p><div className="residence-size"><strong>{unit ? "2,148" : "1,790"}</strong><span>sq. ft.</span></div></div><a href="#enquire" onClick={openEnquiryModal} className="text-link">Get plans &amp; brochure <ArrowUpRight size={20}/></a></div></div></section>
   <section id="amenities" className="section amenities">
     <div className="heading-row">
       <div className="section-heading">
@@ -651,7 +644,7 @@ export default function Home() {
             <Maximize2 size={13} />
             <span>Fullscreen Plan</span>
           </button>
-          <a href="/brochure.pdf" download className="top-editorial-link">
+          <a href="#enquire" onClick={openEnquiryModal} className="top-editorial-link">
             <Download size={13} />
             <span>Brochure</span>
           </a>
@@ -746,7 +739,7 @@ export default function Home() {
 
           {!legendCollapsed && (
             <div className="floating-legend-list" role="list">
-              {masterPlanHotspots.map((spot) => {
+              {masterPlanHotspots.slice(legendPage === 0 ? 0 : 7, legendPage === 0 ? 7 : 10).map((spot) => {
                 const isActive = activeSpotId === spot.id;
                 return (
                   <button
@@ -765,6 +758,27 @@ export default function Home() {
                   </button>
                 );
               })}
+              <div className="floating-legend-pagination" aria-label="Legend pages">
+                <span>{legendPage === 0 ? "01–07" : "08–10"}</span>
+                <div className="floating-legend-page-buttons">
+                  <button
+                    type="button"
+                    onClick={() => setLegendPage(0)}
+                    disabled={legendPage === 0}
+                    aria-label="Show legend items 1 to 7"
+                  >
+                    <ChevronLeft size={14} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLegendPage(1)}
+                    disabled={legendPage === 1}
+                    aria-label="Show legend items 8 to 10"
+                  >
+                    <ChevronRight size={14} />
+                  </button>
+                </div>
+              </div>
             </div>
           )}
         </aside>
@@ -920,7 +934,7 @@ export default function Home() {
     </div>
   </section>
 
- <section id="enquire" className="section enquiry"><div><span className="eyebrow">LET’S START A CONVERSATION</span><h2>Your next chapter<br/><em>begins here.</em></h2><p>Discover Aakaar in person. Connect with our team for residence details or to arrange your visit.</p><a href="tel:+919777543339" className="contact-phone">+91 97775 43339 <ArrowUpRight size={20}/></a><a href="mailto:sales@acruxrealcon.in">sales@acruxrealcon.in</a></div><form onSubmit={handleInlineEnquirySubmit}><label>Your name<input name="name" autoComplete="name" placeholder="Full name" required maxLength={100}/></label><div className="form-row"><label>Phone number<input name="phone" autoComplete="tel" type="tel" placeholder="Your phone number" pattern="[+0-9 ()\-]{7,20}" required/></label><label>Email address<input name="email" autoComplete="email" type="email" placeholder="Email (optional)"/></label></div><label>Interested in<select name="residence" defaultValue="3 BHK"><option>2.5 BHK</option><option>3 BHK</option><option>Help me choose</option></select></label><label className="consent"><input type="checkbox" required/>I agree to be contacted by Acrux Realcon about my enquiry.</label><button className="solid-button" type="submit">Continue on WhatsApp <ArrowUpRight size={18}/></button><p className="form-note">Opens WhatsApp with your enquiry. Send the message there to connect with our team.</p></form></section>
+ <section id="enquire" className="section enquiry"><div><span className="eyebrow">LET’S START A CONVERSATION</span><h2>Your next chapter<br/><em>begins here.</em></h2><p>Complete the form to receive access to the official project brochure and arrange your visit.</p><a href="tel:+919777543339" className="contact-phone">+91 97775 43339 <ArrowUpRight size={20}/></a><a href="mailto:sales@acruxrealcon.in">sales@acruxrealcon.in</a></div><form onSubmit={handleInlineEnquirySubmit}><label>Your name<input name="name" autoComplete="name" placeholder="Full name" required minLength={2} maxLength={100}/></label><div className="form-row"><label>Phone number<input name="phone" autoComplete="tel" type="tel" inputMode="numeric" placeholder="9876543210" pattern="(?:\+91[ -]?)?[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number" required/></label><label>Email address<input name="email" autoComplete="email" type="email" placeholder="name@example.com" required/></label></div><label>Interested in<select name="residence" defaultValue="3 BHK" required><option>2.5 BHK</option><option>3 BHK</option><option>Help me choose</option></select></label><label className="consent"><input type="checkbox" required/>I agree to be contacted by Acrux Realcon about my enquiry.</label><button className="solid-button" type="submit">Submit &amp; access brochure <ArrowUpRight size={18}/></button><p className="form-note">Your brochure download will be available on the next page after successful submission.</p></form></section>
    {/* About the Developer Section */}
   <section id="developer" className="section developer-section">
     <div className="developer-layout">
@@ -954,6 +968,13 @@ export default function Home() {
           Led by Ar. Ramesh Swain, Managing Director, and Ar. Rahul Swain, Director, Acrux Realcon brings together design-led thinking, quality, and a deep understanding of Odisha. Their experience across residential and commercial developments shapes the vision of CODENAME THE ARCH, creating places people are proud to call their own.
         </p>
 
+        <div className="developer-highlights" aria-label="Acrux Realcon highlights">
+          <div><strong>20+</strong><span>Years of experience</span></div>
+          <div><strong>40+</strong><span>Landmark projects</span></div>
+          <div><strong>1,000+</strong><span>Happy families</span></div>
+          <div><strong>2</strong><span>Visionary architects</span></div>
+        </div>
+
         {/* Minimalist Architectural Signature Row */}
         <div className="developer-byline-grid">
           <div className="developer-byline-item">
@@ -974,7 +995,16 @@ export default function Home() {
     </div>
   </section>
 
-  <footer className="site-footer"><div className="footer-top"><a href="#top" className="footer-brand"><Image src="/assets/Aakaar Logo.webp" alt="Acrux Aakaar" width={170} height={70}/></a><p>A considered way of living.<br/>By Acrux Realcon.</p><a href="#top" className="back-top">Back to top <ArrowUpRight size={19}/></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Acrux Realcon. All rights reserved.</span><span>All renders are artist’s impressions. Details subject to confirmation.</span></div></footer>
+  <footer className="site-footer">
+    <div className="footer-top"><a href="#top" className="footer-brand"><Image src="/assets/Aakaar Logo.webp" alt="Acrux Aakaar" width={170} height={70}/></a><p>A considered way of living.<br/>By Acrux Realcon.</p><a href="#top" className="back-top">Back to top <ArrowUpRight size={19}/></a></div>
+    <div className="footer-details">
+      <div><span className="footer-detail-label">PROJECT LOCATION / SITE ADDRESS</span><address>Plot No. 15W, Chandrasekharpur, Patia, Bhubaneswar, Odisha 751 021</address></div>
+      <div><span className="footer-detail-label">DEVELOPER&apos;S CORPORATE OFFICE</span><address>Acrux Realcon Pvt. Ltd., F33/F34, Chandaka Industrial Area, Infocity, Bhubaneswar, Odisha 751 024</address></div>
+      <div><span className="footer-detail-label">CONTACT</span><a href="tel:+919777543339">+91 97775 43339</a><a href="mailto:sales@acruxrealcon.in">sales@acruxrealcon.in</a></div>
+      <div><span className="footer-detail-label">ORERA REGISTRATION</span><span className="footer-rera-pending">Registration number to be updated</span><a href="https://rera.odisha.gov.in/" target="_blank" rel="noreferrer">rera.odisha.gov.in</a></div>
+    </div>
+    <div className="footer-bottom"><span>© {new Date().getFullYear()} Acrux Realcon. All rights reserved.</span><span>All renders are artist’s impressions. Details subject to confirmation.</span></div>
+  </footer>
  <div className="mobile-cta"><a href="tel:+919777543339"><Phone size={16}/> Call us</a><a href="#enquire" onClick={openEnquiryModal}>Schedule a visit <ArrowUpRight size={16}/></a></div>
  {lightbox && (
    <div
@@ -1121,6 +1151,7 @@ export default function Home() {
                     autoComplete="name"
                     placeholder="e.g. Ramesh Mishra"
                     required
+                    minLength={2}
                     maxLength={100}
                   />
                 </div>
@@ -1133,19 +1164,22 @@ export default function Home() {
                       name="phone"
                       type="tel"
                       autoComplete="tel"
-                      placeholder="+91 98765 43210"
-                      pattern="[+0-9 ()-]{7,20}"
+                      inputMode="numeric"
+                      placeholder="9876543210"
+                      pattern="(?:\+91[ -]?)?[6-9][0-9]{9}"
+                      title="Enter a valid 10-digit Indian mobile number"
                       required
                     />
                   </div>
                   <div className="modal-input-group">
-                    <label htmlFor="modal-email">Email Address</label>
+                    <label htmlFor="modal-email">Email Address *</label>
                     <input
                       id="modal-email"
                       name="email"
                       type="email"
                       autoComplete="email"
                       placeholder="name@domain.com"
+                      required
                     />
                   </div>
                 </div>
@@ -1287,7 +1321,7 @@ export default function Home() {
                 <p className="floating-legend-subtitle">EXPLORE THE DEVELOPMENT</p>
               </div>
               <div className="floating-legend-list">
-                {masterPlanHotspots.map((spot) => (
+                {masterPlanHotspots.slice(modalLegendPage === 0 ? 0 : 7, modalLegendPage === 0 ? 7 : 10).map((spot) => (
                   <button
                     key={spot.id}
                     type="button"
@@ -1302,6 +1336,17 @@ export default function Home() {
                     <span className="fl-tag">{spot.tag}</span>
                   </button>
                 ))}
+                <div className="floating-legend-pagination" aria-label="Legend pages">
+                  <span>{modalLegendPage === 0 ? "01–07" : "08–10"}</span>
+                  <div className="floating-legend-page-buttons">
+                    <button type="button" onClick={() => setModalLegendPage(0)} disabled={modalLegendPage === 0} aria-label="Show legend items 1 to 7">
+                      <ChevronLeft size={14} />
+                    </button>
+                    <button type="button" onClick={() => setModalLegendPage(1)} disabled={modalLegendPage === 1} aria-label="Show legend items 8 to 10">
+                      <ChevronRight size={14} />
+                    </button>
+                  </div>
+                </div>
               </div>
             </aside>
           </div>
