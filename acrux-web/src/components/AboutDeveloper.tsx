@@ -71,7 +71,7 @@ export default function AboutDeveloper() {
               <span className="text-xs uppercase tracking-widest text-[#976932] font-bold block">
                 Portfolio of Renowned Odisha Landmarks
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 gap-2">
                 {deliveredProjects.map((proj, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-xs text-neutral-700">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#976932] shrink-0" />
