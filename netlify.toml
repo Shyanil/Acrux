@@ -1,6 +1,7 @@
 [build]
   command = "node netlify-build.js"
   publish = "build"
+  edge_functions = "acrux-web/netlify/edge-functions"
 
 [context.production.environment]
   NODE_VERSION = "22"

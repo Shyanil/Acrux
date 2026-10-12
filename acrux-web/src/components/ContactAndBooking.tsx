@@ -87,13 +87,13 @@ export default function ContactAndBooking() {
               {/* Phone & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <a
-                  href="tel:+919777543339"
+                  href="tel:+919937789002"
                   className="flex items-center gap-3 p-4 rounded-xl bg-white border border-neutral-200 hover:border-[#976932] shadow-2xs hover:shadow-md transition-all"
                 >
                   <Phone className="w-4 h-4 text-[#976932]" />
                   <div>
                     <div className="text-[11px] text-neutral-500 font-medium">Direct Sales Line</div>
-                    <div className="text-xs font-bold text-neutral-900">+91 97775 43339</div>
+                    <div className="text-xs font-bold text-neutral-900">+91 99377 89002</div>
                   </div>
                 </a>
 
@@ -111,7 +111,7 @@ export default function ContactAndBooking() {
 
               {/* WhatsApp Quick Link */}
               <a
-                href="https://wa.me/919777543339?text=Hi,%20I%20am%20interested%20in%20Acrux%20Aakaar%20Patia.%20Please%20share%20details%20and%20pricing."
+                href="https://wa.me/919937789002?text=Hi,%20I%20am%20interested%20in%20Acrux%20Aakaar%20Patia.%20Please%20share%20details%20and%20pricing."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-4 rounded-xl bg-emerald-50 border border-emerald-200 hover:border-emerald-300 transition-all group"

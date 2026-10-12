@@ -26,6 +26,7 @@ pnpm-debug.log*
 # Environment files
 .env*
 !.env.example
+**/netlify/edge-functions/brochure-secret.js
 
 # OS / Editor files
 .DS_Store

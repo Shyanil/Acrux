@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${gotham.variable} scroll-smooth`}>
+    <html lang="en" className={`${gotham.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="font-sans bg-white text-[#222222] antialiased selection:bg-[#976932] selection:text-white">
         {children}
       </body>

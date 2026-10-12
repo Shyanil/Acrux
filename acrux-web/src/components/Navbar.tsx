@@ -72,11 +72,11 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
             {/* Desktop Action Buttons */}
             <div className="hidden md:flex items-center space-x-3">
               <a
-                href="tel:+919777543339"
+                href="tel:+919937789002"
                 className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-neutral-800 hover:text-[#976932] rounded-full border border-neutral-300 hover:border-[#976932] transition-all duration-200 bg-white shadow-2xs"
               >
                 <Phone className="w-3.5 h-3.5 text-[#976932]" />
-                <span className="font-mono text-[11px] font-semibold">+91 97775 43339</span>
+                <span className="font-mono text-[11px] font-semibold">+91 99377 89002</span>
               </a>
 
               <button
@@ -134,11 +134,11 @@ export default function Navbar({ onOpenBrochure, onOpenEnquiry }: NavbarProps) {
 
           <div className="space-y-3 pt-6 border-t border-neutral-200">
             <a
-              href="tel:+919777543339"
+              href="tel:+919937789002"
               className="w-full flex items-center justify-center gap-2 py-3 rounded-full border border-neutral-300 text-neutral-900 text-xs font-semibold uppercase tracking-wider bg-white"
             >
               <Phone className="w-4 h-4 text-[#976932]" />
-              <span>Call +91 97775 43339</span>
+              <span>Call +91 99377 89002</span>
             </a>
 
             <button

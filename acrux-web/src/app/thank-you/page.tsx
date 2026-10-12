@@ -27,7 +27,7 @@ export default function ThankYouPage() {
           <Image className="thank-you-logo" src="/assets/Aakaar Logo.webp" alt="Acrux Aakaar" width={170} height={70} priority />
           <div className="thank-you-status"><span><Check size={15} /></span> Enquiry received</div>
           <h1>Thank you.<br /><em>Your journey begins here.</em></h1>
-          <p className="thank-you-copy">Your interest has been registered successfully. A member of the Acrux Aakaar team will connect with you shortly to understand your requirements.</p>
+          <p className="thank-you-copy">Your interest has been registered successfully. Download the project brochure below. A member of the Acrux Aakaar team will connect with you shortly.</p>
 
           <div className="thank-you-brochure">
             <div><small>YOUR COPY IS READY</small><strong>Official Project Brochure</strong><span>Plans, amenities, specifications and project details.</span></div>
@@ -38,7 +38,7 @@ export default function ThankYouPage() {
 
           <div className="thank-you-actions">
             <Link className="thank-you-back" href="/"><ArrowLeft size={15} /> Return to website</Link>
-            <a className="thank-you-call" href="tel:+919777543339"><Phone size={14} /> +91 97775 43339</a>
+            <a className="thank-you-call" href="tel:+919937789002"><Phone size={14} /> +91 99377 89002</a>
           </div>
         </section>
 
@@ -48,7 +48,7 @@ export default function ThankYouPage() {
           <div className="thank-you-visual-copy">
             <span>PATIA · BHUBANESWAR</span>
             <h2>A home above<br />the everyday.</h2>
-            <div className="thank-you-project-stats"><span><strong>2.5 &amp; 3</strong>BHK residences</span><span><strong>60%</strong>Open space</span></div>
+            <div className="thank-you-project-stats"><span><strong>3 &amp; 4.5</strong>BHK residences</span><span><strong>68%</strong>Open space</span></div>
             <Link href="/#location">Explore the location <ArrowRight size={16} /></Link>
           </div>
         </aside>
