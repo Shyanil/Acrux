@@ -16,7 +16,7 @@ export interface Lead {
   email?: string;
   residence: string;
   timeSlot?: string;
-  sourceForm: 'inline_enquiry' | 'concierge_modal' | 'whatsapp_cta';
+  sourceForm: 'inline_enquiry' | 'concierge_modal' | 'whatsapp_cta' | 'hero_quick' | 'brochure_download' | 'site_visit';
   status: LeadStatus;
   notes?: string;
   utm_source?: string;

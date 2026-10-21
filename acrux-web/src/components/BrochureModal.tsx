@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { submitLeadClient } from "@/lib/leads-client";
+import { getAttribution } from "@/lib/utm";
 import { X, Download, FileText, CheckCircle } from "lucide-react";
 
 interface BrochureModalProps {
@@ -12,12 +14,26 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
   const [downloaded, setDownloaded] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   if (!isOpen) return null;
 
-  const handleDownload = (e: React.FormEvent) => {
+  const handleDownload = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await submitLeadClient({ name: name.trim(), phone: phone.trim(), residence: "Undecided",
+        sourceForm: "brochure_download", ...getAttribution() });
+    } catch {
+      setSubmitError("We could not save your details. Please try again.");
+      setSubmitting(false);
+      return;
+    }
     setDownloaded(true);
+    setSubmitting(false);
     // Programmatically trigger download of the brochure
     const link = document.createElement("a");
     link.href = "/brochure.pdf";
@@ -105,11 +121,13 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
 
             <button
               type="submit"
+              disabled={submitting}
               className="w-full py-3.5 rounded-xl bg-[#976932] hover:bg-[#102038] text-white font-bold text-xs uppercase tracking-[0.2em] shadow-lg shadow-[#976932]/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Download className="w-4 h-4" />
-              <span>Download Brochure PDF</span>
+              <span>{submitting ? "Saving details…" : "Download Brochure PDF"}</span>
             </button>
+            {submitError && <p role="alert" className="text-xs text-red-700">{submitError}</p>}
 
             <p className="text-[10px] text-neutral-400 text-center font-light">
               By downloading, you agree to receive project updates from Acrux Realcon.

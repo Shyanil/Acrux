@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Compass, Download, Maximize2, Menu, X, MapPin, Phone, Plus, Sparkles } from "lucide-react";
 import { submitLeadClient } from "@/lib/leads-client";
+import { captureAttribution, getAttribution } from "@/lib/utm";
 const project = "/assets/Project/";
 const gallery = [["Entrance_Dusk.webp", "An arrival to remember"], ["Master_Elevation.webp", "A new perspective on the city"], ["Rooftop_Sky_Lounge.webp", "Evenings above the everyday"], ["Zen_Pond.webp", "A moment of stillness"]];
 const heroSlides = [
@@ -267,42 +268,9 @@ export default function Home() {
   const activeSpotId = hoveredHotspot ?? selectedHotspot;
   const activeSpot = masterPlanHotspots.find((s) => s.id === activeSpotId);
 
-  // Capture & Persist UTM Marketing Parameters on Landing
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const utmSource = params.get("utm_source");
-      const utmMedium = params.get("utm_medium");
-      const utmCampaign = params.get("utm_campaign");
-      const utmTerm = params.get("utm_term");
-      const utmContent = params.get("utm_content");
-
-      if (utmSource) sessionStorage.setItem("acrux_utm_source", utmSource);
-      if (utmMedium) sessionStorage.setItem("acrux_utm_medium", utmMedium);
-      if (utmCampaign) sessionStorage.setItem("acrux_utm_campaign", utmCampaign);
-      if (utmTerm) sessionStorage.setItem("acrux_utm_term", utmTerm);
-      if (utmContent) sessionStorage.setItem("acrux_utm_content", utmContent);
-
-      if (document.referrer && !sessionStorage.getItem("acrux_referrer")) {
-        sessionStorage.setItem("acrux_referrer", document.referrer);
-      }
-    } catch (err) {
-      console.error("Error reading UTM parameters:", err);
-    }
+    captureAttribution();
   }, []);
-
-  const getUtmData = () => {
-    if (typeof window === "undefined") return {};
-    return {
-      utm_source: sessionStorage.getItem("acrux_utm_source") || "direct",
-      utm_medium: sessionStorage.getItem("acrux_utm_medium") || "none",
-      utm_campaign: sessionStorage.getItem("acrux_utm_campaign") || "general",
-      utm_term: sessionStorage.getItem("acrux_utm_term") || undefined,
-      utm_content: sessionStorage.getItem("acrux_utm_content") || undefined,
-      referrer: sessionStorage.getItem("acrux_referrer") || (typeof document !== "undefined" ? document.referrer : "Direct"),
-    };
-  };
 
   const grantBrochureAccess = async (lead: { name: string; phone: string; email: string; residence: string }) => {
     // Next's local dev server does not run Netlify Edge Functions.
@@ -329,7 +297,7 @@ export default function Home() {
     const phone = String(data.get("phone") || "");
     const email = String(data.get("email") || "");
     const residence = String(data.get("residence") || "3 BHK");
-    const utm = getUtmData();
+    const utm = getAttribution();
 
     // Persist lead to database with UTM source tracking
     try {
@@ -361,7 +329,7 @@ export default function Home() {
     const phone = String(data.get("phone") || "");
     const email = String(data.get("email") || "");
     const timeSlot = String(data.get("timeSlot") || "");
-    const utm = getUtmData();
+    const utm = getAttribution();
 
     // Persist lead to database with UTM source tracking
     try {

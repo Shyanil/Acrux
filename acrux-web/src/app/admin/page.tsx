@@ -7,12 +7,10 @@ import {
   Mail,
   Search,
   Download,
-  Filter,
   Phone,
   MessageCircle,
   Eye,
   Trash2,
-  CheckCircle2,
   Calendar,
   Users,
   Compass,
@@ -21,9 +19,7 @@ import {
   RefreshCw,
   LogOut,
   X,
-  FileSpreadsheet,
   Layers,
-  ChevronDown
 } from "lucide-react";
 import "./admin.css";
 import { Lead, LeadStats, LeadStatus } from "@/types/leads";
@@ -33,15 +29,16 @@ import {
   deleteLeadClient,
   downloadLeadsCsvClient,
 } from "@/lib/leads-client";
+import { getSupabaseClient } from "@/lib/supabase";
 
 const DEFAULT_ADMIN_EMAIL = "admin@acruxrealcon.in";
-const DEFAULT_ADMIN_PASS = "acrux2026";
 
 export default function AdminPortalPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [authEmail, setAuthEmail] = useState<string>("");
   const [authPassword, setAuthPassword] = useState<string>("");
   const [loginError, setLoginError] = useState<string>("");
+  const [dataError, setDataError] = useState<string>("");
 
   const [leads, setLeads] = useState<Lead[]>([]);
   const [stats, setStats] = useState<LeadStats | null>(null);
@@ -63,16 +60,19 @@ export default function AdminPortalPage() {
   // Supabase modal
   const [showDbModal, setShowDbModal] = useState<boolean>(false);
 
-  // Check existing session
   useEffect(() => {
-    const session = sessionStorage.getItem("acrux_admin_session");
-    if (session === "true") {
-      setIsAuthenticated(true);
-    }
+    const client = getSupabaseClient();
+    if (!client) return;
+    client.auth.getUser().then(({ data, error }) => {
+      if (!error && data.user?.email?.toLowerCase() === DEFAULT_ADMIN_EMAIL) {
+        setIsAuthenticated(true);
+      }
+    });
   }, []);
 
   const fetchLeads = async () => {
     setIsLoading(true);
+    setDataError("");
     try {
       const data = await fetchLeadsClient();
       setLeads(data.leads || []);
@@ -80,6 +80,8 @@ export default function AdminPortalPage() {
       setIsSupabaseConnected(Boolean(data.isSupabaseConnected));
     } catch (err) {
       console.error("Failed to load leads:", err);
+      setIsSupabaseConnected(false);
+      setDataError("Could not load leads from Supabase. Check that the SQL is installed and your admin account is authorized.");
     } finally {
       setIsLoading(false);
     }
@@ -87,28 +89,35 @@ export default function AdminPortalPage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      fetchLeads();
+      const timer = window.setTimeout(() => { void fetchLeads(); }, 0);
+      return () => window.clearTimeout(timer);
     }
   }, [isAuthenticated]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError("");
-
-    if (
-      (authEmail.toLowerCase().trim() === DEFAULT_ADMIN_EMAIL || authEmail.toLowerCase().trim() === "admin") &&
-      authPassword === DEFAULT_ADMIN_PASS
-    ) {
-      sessionStorage.setItem("acrux_admin_session", "true");
-      setIsAuthenticated(true);
-    } else {
-      setLoginError("Invalid credentials. Try: admin@acruxrealcon.in / acrux2026");
+    const client = getSupabaseClient();
+    if (!client) { setLoginError("Supabase is not configured."); return; }
+    if (authEmail.trim().toLowerCase() !== DEFAULT_ADMIN_EMAIL) {
+      setLoginError("This account is not authorized for the admin portal.");
+      return;
     }
+    const { data, error } = await client.auth.signInWithPassword({
+      email: authEmail.trim(), password: authPassword,
+    });
+    if (error || data.user?.email?.toLowerCase() !== DEFAULT_ADMIN_EMAIL) {
+      setLoginError(error?.message || "This account is not authorized for the admin portal.");
+      return;
+    }
+    setAuthPassword("");
+    setIsAuthenticated(true);
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem("acrux_admin_session");
+  const handleLogout = async () => {
+    await getSupabaseClient()?.auth.signOut();
     setIsAuthenticated(false);
+    setLeads([]);
   };
 
   // Status Change
@@ -125,6 +134,7 @@ export default function AdminPortalPage() {
       }
     } catch (err) {
       console.error("Error updating status:", err);
+      setDataError("Could not update this lead in Supabase. Please retry.");
     }
   };
 
@@ -142,6 +152,7 @@ export default function AdminPortalPage() {
       }
     } catch (err) {
       console.error("Error saving note:", err);
+      setDataError("Could not save this note in Supabase. Please retry.");
     } finally {
       setIsSavingNote(false);
     }
@@ -158,6 +169,7 @@ export default function AdminPortalPage() {
       }
     } catch (err) {
       console.error("Error deleting lead:", err);
+      setDataError("Could not delete this lead in Supabase. Please retry.");
     }
   };
 
@@ -296,9 +308,7 @@ export default function AdminPortalPage() {
                 <ArrowUpRight size={15} />
               </button>
 
-              <div className="login-card-footer">
-                <span>Default Passcode: <strong>admin@acruxrealcon.in</strong> / <strong>acrux2026</strong></span>
-              </div>
+              <div className="login-card-footer">Sign in with your Supabase admin account.</div>
             </form>
           </div>
         </main>
@@ -333,10 +343,10 @@ export default function AdminPortalPage() {
               type="button"
               className={`supabase-status-pill ${isSupabaseConnected ? "connected" : "local-ready"}`}
               onClick={() => setShowDbModal(true)}
-              title="Click to check database credentials and integration"
+              title="Click to check the database connection"
             >
               <span className="status-dot-pulse" />
-              <span>{isSupabaseConnected ? "Supabase Live" : "Local Storage (Ready for Supabase)"}</span>
+              <span>{isSupabaseConnected ? "Supabase Live" : "Supabase Unavailable"}</span>
               <Database size={12} />
             </button>
 
@@ -362,6 +372,7 @@ export default function AdminPortalPage() {
 
       {/* Main Dashboard Container */}
       <main className="admin-main-container">
+        {dataError && <p role="alert" style={{ color: "#B91C1C", margin: "16px 0" }}>{dataError}</p>}
         {/* KPI Stats Grid */}
         <section className="admin-stats-grid" aria-label="Key Performance Indicators">
           <div className="admin-stat-card">
@@ -825,30 +836,20 @@ export default function AdminPortalPage() {
             <div className="lead-modal-body">
               <div style={{ background: isSupabaseConnected ? "#F0FDF4" : "#FEF3C7", padding: "14px 18px", borderLeft: `4px solid ${isSupabaseConnected ? "#22C55E" : "#F59E0B"}` }}>
                 <strong style={{ color: isSupabaseConnected ? "#15803D" : "#B45309" }}>
-                  {isSupabaseConnected ? "● Supabase is currently connected and active." : "● Operating in Local Active Mode."}
+                  {isSupabaseConnected ? "● Supabase is currently connected and active." : "● Supabase is unavailable."}
                 </strong>
                 <p style={{ margin: "5px 0 0 0", fontSize: "12px", color: "#333" }}>
                   {isSupabaseConnected
-                    ? "All leads submitted on the website are being synced directly to your cloud Supabase database."
-                    : "Leads are currently being captured and stored securely in local server storage. When you provide your Supabase credentials, the system will automatically sync with Supabase!"}
+                    ? "The dashboard is reading leads directly from Supabase."
+                    : "Check the SQL policies and admin account, then refresh."}
                 </p>
               </div>
 
               <div>
-                <span className="lead-detail-section-title">HOW TO CONNECT SUPABASE:</span>
+                <span className="lead-detail-section-title">SUPABASE SETUP:</span>
                 <ol style={{ fontSize: "12.5px", lineHeight: "1.7", color: "#333", paddingLeft: "20px", margin: "0" }}>
-                  <li>Create a free project at <strong>supabase.com</strong>.</li>
-                  <li>Go to <strong>Project Settings -&gt; API</strong> and copy your Project URL and API Keys.</li>
-                  <li>
-                    Add these two lines to your <code style={{ background: "#eee", padding: "2px 5px" }}>acrux-web/.env.local</code> file:
-                    <pre style={{ background: "#102038", color: "#F7F5F0", padding: "10px", borderRadius: "3px", overflowX: "auto", margin: "8px 0" }}>
-{`NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key`}
-                    </pre>
-                  </li>
-                  <li>
-                    Execute the pre-built schema script <code style={{ background: "#eee", padding: "2px 5px" }}>supabase_schema.sql</code> in the Supabase SQL editor.
-                  </li>
+                  <li>Run <code style={{ background: "#eee", padding: "2px 5px" }}>supabase_schema.sql</code> in the Supabase SQL Editor.</li>
+                  <li>Create and confirm <strong>admin@acruxrealcon.in</strong> in Supabase Authentication &rarr; Users.</li>
                 </ol>
               </div>
 

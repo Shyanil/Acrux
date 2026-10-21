@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { submitLeadClient } from "@/lib/leads-client";
+import { getAttribution } from "@/lib/utm";
 import {
   MapPin,
   Phone,
@@ -14,6 +16,8 @@ import {
 
 export default function ContactAndBooking() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -23,9 +27,23 @@ export default function ContactAndBooking() {
     notes: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitting) return;
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await submitLeadClient({
+        name: form.name.trim(), phone: form.phone.trim(), email: form.email.trim() || undefined,
+        residence: form.unit, timeSlot: form.date || undefined, notes: form.notes.trim(),
+        sourceForm: "site_visit", ...getAttribution(),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitError("We could not save your request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -265,11 +283,13 @@ export default function ContactAndBooking() {
 
                   <button
                     type="submit"
+                    disabled={submitting}
                     className="w-full py-4 rounded-xl bg-[#976932] hover:bg-[#102038] text-white font-bold text-xs uppercase tracking-[0.2em] shadow-xl shadow-[#976932]/25 transition-all flex items-center justify-center gap-2 group cursor-pointer"
                   >
-                    <span>Schedule VIP Site Preview</span>
+                    <span>{submitting ? "Saving request…" : "Schedule VIP Site Preview"}</span>
                     <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
+                  {submitError && <p role="alert" className="text-sm text-red-700">{submitError}</p>}
 
                   <p className="text-[11px] text-neutral-500 text-center font-light">
                     🔒 Your privacy is fully respected. Your details are solely used for Acrux Aakaar advisory.

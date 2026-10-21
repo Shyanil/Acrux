@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { Lead, LeadStats } from '@/types/leads';
-import { getSupabaseClient, isSupabaseConfigured } from './supabase';
+import { getSupabaseClient, LEADS_TABLE } from './supabase';
 
 const DATA_FILE_PATH = path.resolve(process.cwd(), 'src/data/leads.json');
 
@@ -40,7 +40,7 @@ export async function getAllLeads(): Promise<Lead[]> {
   if (supabase) {
     try {
       const { data, error } = await supabase
-        .from('leads')
+        .from(LEADS_TABLE)
         .select('*')
         .order('createdAt', { ascending: false });
 
@@ -75,7 +75,7 @@ export async function createLead(data: Omit<Lead, 'id' | 'createdAt'>): Promise<
   if (supabase) {
     try {
       const { data: inserted, error } = await supabase
-        .from('leads')
+        .from(LEADS_TABLE)
         .insert([newLead])
         .select()
         .single();
@@ -104,7 +104,7 @@ export async function updateLead(id: string, updates: Partial<Lead>): Promise<Le
   if (supabase) {
     try {
       const { data, error } = await supabase
-        .from('leads')
+        .from(LEADS_TABLE)
         .update(mergedUpdates)
         .eq('id', id)
         .select()
@@ -131,7 +131,7 @@ export async function deleteLead(id: string): Promise<boolean> {
   const supabase = getSupabaseClient();
   if (supabase) {
     try {
-      const { error } = await supabase.from('leads').delete().eq('id', id);
+      const { error } = await supabase.from(LEADS_TABLE).delete().eq('id', id);
       if (!error) return true;
     } catch (err) {
       console.warn('Supabase delete error:', err);

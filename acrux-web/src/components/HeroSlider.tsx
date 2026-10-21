@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { submitLeadClient } from "@/lib/leads-client";
+import { getAttribution } from "@/lib/utm";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -49,6 +51,8 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formError, setFormError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -75,12 +79,21 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
     return () => clearInterval(progressTimer);
   }, [currentSlide]);
 
-  const handleQuickSubmit = (e: React.FormEvent) => {
+  const handleQuickSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-    }, 6000);
+    if (formSubmitting) return;
+    setFormSubmitting(true);
+    setFormError("");
+    try {
+      await submitLeadClient({ name: formData.name.trim(), phone: formData.phone.trim(),
+        residence: formData.unitType, sourceForm: "hero_quick", ...getAttribution() });
+      setFormSubmitted(true);
+      setTimeout(() => setFormSubmitted(false), 6000);
+    } catch {
+      setFormError("We could not save your request. Please try again.");
+    } finally {
+      setFormSubmitting(false);
+    }
   };
 
   const current = slides[currentSlide];
@@ -327,10 +340,12 @@ export default function HeroSlider({ onOpenBrochure, onOpenEnquiry }: HeroSlider
 
                   <button
                     type="submit"
+                    disabled={formSubmitting}
                     className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#b88f32] text-black font-semibold text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-lg shadow-[#d4af37]/20 mt-2 cursor-pointer"
                   >
-                    Request Callback &amp; Pricing
+                    {formSubmitting ? "Saving request…" : "Request Callback & Pricing"}
                   </button>
+                  {formError && <p role="alert" className="text-xs text-red-300">{formError}</p>}
 
                   <div className="flex items-center justify-between text-[10px] text-slate-500 pt-0.5">
                     <span>🔒 100% Privacy Guaranteed</span>
